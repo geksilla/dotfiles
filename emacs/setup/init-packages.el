@@ -21,29 +21,19 @@
   '(powerline
     markdown-mode
     smartparens
-    auto-complete
     projectile
     helm
     helm-projectile
     helm-ag
     ace-jump-mode
     move-text
-    zenburn-theme
-    color-theme-sanityinc-tomorrow
     flycheck
     jade-mode
-    js2-mode
-    js2-refactor
-    js-doc
-    coffee-mode
     handlebars-mode
     handlebars-sgml-mode
     skewer-mode
-    ac-js2
     ag
     multiple-cursors
-    tern
-    tern-auto-complete
     yasnippet
     visual-regexp
     git-gutter
@@ -52,4 +42,9 @@
     ac-cider
     company
     emmet-mode))
+
+(dolist (package package-list)
+    (unless (package-installed-p package)
+          (package-install package)))
+
 (provide 'init-packages)

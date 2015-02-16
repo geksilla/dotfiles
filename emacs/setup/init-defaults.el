@@ -1,3 +1,8 @@
+;; maximize on startup
+(require-package 'maxframe)
+(add-hook 'window-setup-hook 'maximize-frame t)
+;; start emacs server
+(server-start)
 (windmove-default-keybindings)
 (global-linum-mode t)
 (global-auto-revert-mode t)

@@ -15,6 +15,8 @@
   "k" 'kill-buffer
   "g s" 'magit-status
   "l s" 'helm-buffers-list
-  "s" 'save-buffer)
+  "s" 'save-buffer
+  "b n" 'next-buffer
+  "b p" 'previous-buffer)
 
 (provide 'init-evil)
