@@ -110,7 +110,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (visual-regexp stylus-mode starter-kit-lisp smartparens powerline move-text maxframe markdown-mode js2-refactor js-doc jade-mode helm-projectile helm-ag handlebars-sgml-mode handlebars-mode git-gutter flycheck evil-surround evil-leader emmet-mode company color-theme-sanityinc-tomorrow coffee-mode ag ace-jump-mode ac-js2 ac-cider))))
+    (visual-regexp stylus-mode starter-kit-lisp smartparens powerline move-text maxframe markdown-mode js2-refactor js-doc jade-mode helm-projectile helm-ag handlebars-sgml-mode handlebars-mode git-gutter flycheck evil-surround evil-leader emmet-mode company-tern color-theme-sanityinc-tomorrow coffee-mode ag ace-jump-mode ac-js2 ac-cider))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

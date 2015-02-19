@@ -3,6 +3,7 @@
 (require-package 'js-doc)
 (require-package 'coffee-mode)
 (require-package 'ac-js2)
+(require-package 'company-tern)
 
 (require 'js2-mode)
 (require 'ac-js2)
@@ -30,28 +31,24 @@
   (define-key js2-mode-map (kbd "C-c j d") 'js-doc-insert-function-doc)
   (smartparens-mode)
   (sp-use-paredit-bindings)
+  (when (eq js-enable-tern t)
+    (define-key evil-motion-state-local-map "\C-]" 'tern-find-definition)
+    (tern-mode t))
   (flycheck-mode t))
 
-(eval-after-load 'js2-mode
-  '(progn
-     (add-hook 'js2-mode-hook 'my--js2-mode-hook))) 
+(add-hook 'js2-mode-hook 'my--js2-mode-hook) 
 
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
 (defun my--company-js-hook () 
+  (if (eq js-enable-tern t) 
+    (add-to-list 'company-backends 'company-tern))
   (add-to-list 'company-backends 'ac-js2-company)
   (add-to-list 'company-dabbrev-code-modes 'js2-mode)
   (add-to-list 'company-semantic-modes 'js2-mode))
 
 (add-hook 'company-mode-hook 'my--company-js-hook)
-
-(eval-after-load 'auto-complete
-  (eval-after-load 'tern
-    '(progn
-       (add-to-list 'exec-path "~/.nvm/v0.10.33/bin")
-       (require 'tern-auto-complete)
-       (tern-ac-setup))))
 
 ;; coffee-mode
 (require 'coffee-mode)

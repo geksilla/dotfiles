@@ -6,6 +6,9 @@
 (windmove-default-keybindings)
 (global-linum-mode t)
 (global-auto-revert-mode t)
+(defvar js-enable-tern nil
+  "Enable tern mode for js files")
+(setq js-enable-tern t)
 (setq-default tab-width 2)
 (setq-default fill-column 120)
 (setq-default js-indent-level tab-width)
