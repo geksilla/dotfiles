@@ -2,10 +2,13 @@
 
 (require 'init-packages)
 (require 'init-defaults)
+
 (require 'init-theme)
 (require 'init-evil)
 (require 'init-company)
 (require 'init-js)
+(require 'init-css)
+(require 'init-keymap)
 
 ;; projectile
 (require 'helm-projectile)
@@ -21,20 +24,6 @@
 (global-git-gutter-mode t)
 (git-gutter:linum-setup)
 
-;; key bindings 
-(define-key global-map (kbd "M-P") 'move-text-up)
-(define-key global-map (kbd "M-N") 'move-text-down)
-(define-key global-map (kbd "M-&") 'vr/query-replace)
-(define-key global-map (kbd "M-/") 'vr/replace)
-(define-key global-map (kbd "C-c g s") 'magit-status)
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x p") 'git-gutter:previous-hunk)
-(global-set-key (kbd "C-x n") 'git-gutter:next-hunk)
-(global-set-key (kbd "C-x v r") 'git-gutter:revert-hunk)
-(global-set-key (kbd "C-x v =") 'git-gutter:popup-hunk)
-(global-set-key (kbd "C-x v u") 'git-gutter:update-all-windows)
-(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
-
 ;; ace-jump-mode
 (autoload
   'ace-jump-mode
@@ -42,16 +31,6 @@
   "Emacs quick move minor mode"
   t)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-
-;; stylus
-(require 'stylus-mode)
-(require 'jade-mode)    
-(add-to-list 'auto-mode-alist '("\\.styl$" . stylus-mode))
-(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
-
-(defun stylus-hook ()
-  (smartparens-mode))
-(add-hook 'stylus-mode-hook 'stylus-hook)
 
 ;; handlebars
 (require 'handlebars-sgml-mode)
@@ -92,6 +71,7 @@
 
 ;; smartparens
 (require 'smartparens-config)
+(smartparens-global-mode t)
 
 ;; js2-mode configs
 
@@ -110,7 +90,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (visual-regexp stylus-mode starter-kit-lisp smartparens powerline move-text maxframe markdown-mode js2-refactor js-doc jade-mode helm-projectile helm-ag handlebars-sgml-mode handlebars-mode git-gutter flycheck evil-surround evil-leader emmet-mode company-tern color-theme-sanityinc-tomorrow coffee-mode ag ace-jump-mode ac-js2 ac-cider))))
+    (visual-regexp stylus-mode starter-kit-lisp smartparens scss-mode sass-mode powerline move-text maxframe markdown-mode less-css-mode js2-refactor js-doc jade-mode helm-projectile helm-ag handlebars-sgml-mode handlebars-mode git-gutter flycheck evil-surround evil-leader emmet-mode company-tern color-theme-sanityinc-tomorrow coffee-mode ag ace-jump-mode ac-js2 ac-cider))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
