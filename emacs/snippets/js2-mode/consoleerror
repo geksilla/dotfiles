@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: cle
+# key: cle
+# binding: direct-keybinding
+# --
+console.error($0);

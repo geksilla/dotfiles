@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: cll
+# key: cll
+# binding: direct-keybinding
+# --
+console.log($0);

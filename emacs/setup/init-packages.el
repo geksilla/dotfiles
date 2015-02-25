@@ -20,6 +20,7 @@
 (defvar package-list 
   '(powerline
     markdown-mode
+    restclient
     smartparens
     projectile
     helm
@@ -40,7 +41,6 @@
     stylus-mode
     cider
     ac-cider
-    company
     emmet-mode))
 
 (dolist (package package-list)

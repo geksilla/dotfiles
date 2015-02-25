@@ -8,9 +8,12 @@
 (require 'init-company)
 (require 'init-js)
 (require 'init-css)
+(require 'init-ruby)
+(require 'init-smartparens)
 (require 'init-keymap)
 
 ;; projectile
+(require 'projectile)
 (require 'helm-projectile)
 (helm-projectile-on)
 (projectile-global-mode)
@@ -41,6 +44,7 @@
 ;; yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
+(add-hook 'term-mode-hook (lambda () (yas-minor-mode -1)))
 
 ;; CIDER
 (require 'cider)
@@ -69,12 +73,6 @@
 (add-hook 'sgml-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook  'emmet-mode)
 
-;; smartparens
-(require 'smartparens-config)
-(smartparens-global-mode t)
-
-;; js2-mode configs
-
 ;;markdown-mode
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
@@ -90,7 +88,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (visual-regexp stylus-mode starter-kit-lisp smartparens scss-mode sass-mode powerline move-text maxframe markdown-mode less-css-mode js2-refactor js-doc jade-mode helm-projectile helm-ag handlebars-sgml-mode handlebars-mode git-gutter flycheck evil-surround evil-leader emmet-mode company-tern color-theme-sanityinc-tomorrow coffee-mode ag ace-jump-mode ac-js2 ac-cider))))
+    (visual-regexp stylus-mode starter-kit-lisp smartparens scss-mode sass-mode robe restclient powerline move-text maxframe markdown-mode less-css-mode js2-refactor js-doc jade-mode helm-projectile helm-ag handlebars-sgml-mode handlebars-mode git-gutter flycheck evil-surround evil-leader emmet-mode company-tern color-theme-sanityinc-tomorrow coffee-mode blank-mode ag ace-jump-mode ac-js2 ac-cider))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

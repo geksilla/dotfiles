@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: afterEach
+# key: afterEach
+# binding: direct-keybinding
+# --
+afterEach(function() {
+  $0;
+});

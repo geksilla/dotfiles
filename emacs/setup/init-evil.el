@@ -14,9 +14,11 @@
 (evil-leader/set-key
   "k" 'kill-buffer
   "g s" 'magit-status
+  "g b" 'magit-blame-mode
   "l s" 'helm-buffers-list
   "s" 'save-buffer
   "b n" 'next-buffer
   "b p" 'previous-buffer)
 
+(define-key evil-insert-state-map "\C-j" 'emmet-expand-line)
 (provide 'init-evil)

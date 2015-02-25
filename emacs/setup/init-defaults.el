@@ -2,7 +2,9 @@
 (require-package 'maxframe)
 (add-hook 'window-setup-hook 'maximize-frame t)
 ;; start emacs server
-(server-start)
+(require 'server)
+(unless (server-running-p)
+  (server-start))
 (windmove-default-keybindings)
 (global-linum-mode t)
 (global-auto-revert-mode t)
@@ -17,7 +19,7 @@
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
-
+(setq mode-require-final-newline nil)
 ;; set env path
 (let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
   (setenv "PATH" path)

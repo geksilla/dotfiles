@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: cld
+# key: cld
+# binding: direct-keybinding
+# --
+console.debug($0);
