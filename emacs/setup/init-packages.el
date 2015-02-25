@@ -41,6 +41,7 @@
     stylus-mode
     cider
     ac-cider
+    blank-mode
     emmet-mode))
 
 (dolist (package package-list)
