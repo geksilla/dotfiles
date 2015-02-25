@@ -9,7 +9,6 @@
 (global-evil-surround-mode t)
 (require 'evil)
 (evil-mode 1)
-
 (evil-leader/set-leader ",")
 (evil-leader/set-key
   "k" 'kill-buffer

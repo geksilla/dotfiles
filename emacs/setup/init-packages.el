@@ -35,6 +35,7 @@
     skewer-mode
     ag
     multiple-cursors
+    rainbow-delimiters
     yasnippet
     visual-regexp
     git-gutter
