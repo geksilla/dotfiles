@@ -6,6 +6,7 @@
 (require 'init-theme)
 (require 'init-evil)
 (require 'init-company)
+(require 'init-html)
 (require 'init-js)
 (require 'init-css)
 (require 'init-ruby)
@@ -37,11 +38,6 @@
   t)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
-;; handlebars
-(require 'handlebars-sgml-mode)
-(require 'handlebars-mode)
-(handlebars-use-mode 'global)
-(add-hook 'handlebars-mode-hook 'html-mode)
 
 ;; yasnippet
 (require 'yasnippet)
@@ -69,12 +65,6 @@
      (add-hook 'clojure-mode-hook 'my-clojure-hook)))
 (add-hook 'cider-repl-mode-hook 'company-mode)
 
-
-;; emmet-mode
-(require 'emmet-mode)
-(add-hook 'sgml-mode-hook 'emmet-mode)
-(add-hook 'css-mode-hook  'emmet-mode)
-
 ;;markdown-mode
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
@@ -90,7 +80,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (visual-regexp stylus-mode starter-kit-lisp smartparens scss-mode sass-mode robe restclient rainbow-delimiters rainbow-blocks powerline move-text maxframe markdown-mode less-css-mode js2-refactor js-doc jade-mode helm-projectile helm-ag handlebars-sgml-mode handlebars-mode git-gutter flycheck evil-surround evil-leader emmet-mode company-tern color-theme-sanityinc-tomorrow coffee-mode blank-mode ag ace-jump-mode ac-js2 ac-cider))))
+    (visual-regexp stylus-mode starter-kit-lisp smartparens slim-mode scss-mode sass-mode robe restclient rainbow-mode rainbow-delimiters rainbow-blocks project-explorer powerline move-text maxframe markdown-mode less-css-mode js2-refactor js-doc jade-mode helm-projectile helm-ag handlebars-sgml-mode handlebars-mode git-gutter flycheck evil-surround evil-leader emmet-mode company-tern color-theme-sanityinc-tomorrow coffee-mode blank-mode ag ace-jump-mode ac-js2 ac-cider))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

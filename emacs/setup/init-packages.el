@@ -29,9 +29,6 @@
     ace-jump-mode
     move-text
     flycheck
-    jade-mode
-    handlebars-mode
-    handlebars-sgml-mode
     skewer-mode
     ag
     multiple-cursors
@@ -39,11 +36,10 @@
     yasnippet
     visual-regexp
     git-gutter
-    stylus-mode
     cider
     ac-cider
-    blank-mode
-    emmet-mode))
+    project-explorer
+    blank-mode))
 
 (dolist (package package-list)
     (unless (package-installed-p package)

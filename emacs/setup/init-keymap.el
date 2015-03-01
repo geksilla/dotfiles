@@ -10,5 +10,7 @@
 (global-set-key (kbd "C-x v =") 'git-gutter:popup-hunk)
 (global-set-key (kbd "C-x v u") 'git-gutter:update-all-windows)
 (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
+(global-set-key (kbd "<C-tab>") 'next-buffer)
+(global-set-key (kbd "<C-iso-lefttab>") 'previous-buffer)
 
 (provide 'init-keymap)
