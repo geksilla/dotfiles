@@ -2,7 +2,9 @@
 
 (require 'init-packages)
 (require 'init-defaults)
-
+(require 'init-projectile)
+(require 'init-project-explorer)
+(require 'init-org)
 (require 'init-theme)
 (require 'init-evil)
 (require 'init-company)
@@ -15,11 +17,6 @@
 
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-;; projectile
-(require 'projectile)
-(require 'helm-projectile)
-(helm-projectile-on)
-(projectile-global-mode)
 
 
 ;; powerline
@@ -80,7 +77,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (visual-regexp stylus-mode starter-kit-lisp smartparens slim-mode scss-mode sass-mode robe restclient rainbow-mode rainbow-delimiters rainbow-blocks project-explorer powerline move-text maxframe markdown-mode less-css-mode js2-refactor js-doc jade-mode helm-projectile helm-ag handlebars-sgml-mode handlebars-mode git-gutter flycheck evil-surround evil-leader emmet-mode company-tern color-theme-sanityinc-tomorrow coffee-mode blank-mode ag ace-jump-mode ac-js2 ac-cider))))
+    (visual-regexp tabbar sublime-themes stylus-mode starter-kit-lisp smartparens slim-mode scss-mode sass-mode robe restclient rainbow-mode rainbow-delimiters rainbow-blocks project-explorer powerline move-text monokai-theme maxframe markdown-mode less-css-mode js2-refactor js-doc jade-mode hipster-theme helm-projectile helm-ag handlebars-sgml-mode handlebars-mode git-gutter flycheck evil-surround evil-leader emmet-mode company-tern color-theme-sanityinc-tomorrow coffee-mode blank-mode ag ace-jump-mode ac-js2 ac-cider))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

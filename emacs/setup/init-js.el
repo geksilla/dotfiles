@@ -29,6 +29,7 @@
   (js2r-add-keybindings-with-prefix "C-c C-m")
   (js2-imenu-extras-mode +1)
   (define-key js2-mode-map (kbd "C-c j d") 'js-doc-insert-function-doc)
+  (hs-minor-mode +1)
   (when (eq js-enable-tern t)
     (define-key evil-motion-state-local-map "\C-]" 'tern-find-definition)
     (tern-mode t))

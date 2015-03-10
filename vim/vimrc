@@ -45,6 +45,9 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'slim-template/vim-slim'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'kchmck/vim-coffee-script'
 
 filetype plugin indent on
 syntax enable
