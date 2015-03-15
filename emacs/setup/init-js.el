@@ -53,6 +53,5 @@
 (require 'coffee-mode)
 (setq whitespace-action '(auto-cleanup))
 (setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
-(setq coffee-indent-tabs-mode t)
 
 (provide 'init-js)
