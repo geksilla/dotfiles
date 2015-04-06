@@ -15,6 +15,7 @@
 (setq-default fill-column 120)
 (setq-default js-indent-level tab-width)
 (setq create-lockfiles nil)
+(setq ediff-split-window-function 'split-window-horizontally)
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
