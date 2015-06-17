@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: ofn
+# key: ofn
+# binding: direct-keybinding
+# --
+
+${1:propertyName}: function(${2:arguments}) {
+  ${0:// body}
+}
