@@ -21,6 +21,7 @@
                                        vagrant
                                        git
                                        github
+                                       go
                                        version-control
                                        (auto-completion
                                         :variables

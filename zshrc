@@ -87,17 +87,16 @@ __safe_path_dir $HOME/.linuxbrew/bin
 #   }}}
 #   {{{ Third party 
 __safe_path_dir $HOME/scripts
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #   }}}
 # }}}
 
 # {{{ Aliases
 alias r=". ~/.zshrc"
 alias vi="vim"
-alias peco="peco --prompt `echo -e '\u2192'`"
-alias pskill="ps aux | peco | awk '{print \$2}' | xargs kill -9"
+alias pskill="ps aux | fzf | awk '{print \$2}' | xargs kill -9"
 alias tmux="tmux -2"
 alias cat="colorize"
 alias npm-exec='PATH=$(npm bin):$PATH'
 alias enw="emacs -nw"
 # }}} 
-

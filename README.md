@@ -29,12 +29,11 @@ Install [spacemacs](https://github.com/syl20bnr/spacemacs).
 
     $ git clone --recursive https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
-
 ### Vim
 
 Install latest vim
 
-    $ brew install --with-lua --with-luajit --with-python --with-python3 vim
+    $ brew install --with-lua --with-luajit --with-python vim
 
 Install [vim-plug](https://github.com/junegunn/vim-plug)
 
@@ -60,6 +59,14 @@ $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/
 ```
 $ brew tap peco/peco && brew install peco
 ```
+
+* [fzf](https://github.com/junegunn/fzf)
+
+```
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+```
+*NOTE*: During fzf installation prompt decline auto-completion support, since it breaks
+autosuggestions.
 
 ### Node/javascript
 

@@ -1,7 +1,4 @@
 set nocompatible
-if has ('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
 
 "Plugins: {{{
 call plug#begin(expand('~/.vim/plugged/'))
@@ -27,9 +24,16 @@ Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/simple-javascript-indenter', { 'for': ['javascript'] }
+Plug 'jiangmiao/auto-pairs'
 Plug 'jelera/vim-javascript-syntax', { 'for': ['javascript'] }
 Plug 'marijnh/tern_for_vim', { 'for': ['javascript'] }
+Plug 'luochen1990/rainbow'
 Plug 'shime/vim-livedown', { 'for': 'markdown' }
+Plug 'Lokaltog/vim-easymotion'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'no \| ./install'  }
+Plug 'terryma/vim-expand-region'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 " }}}
@@ -90,7 +94,6 @@ if has('gui_running')
 endif
 
 set foldmethod=marker
-set spell spelllang=en_us
 "Ignore: {{{
 set wildignore=*.o,*.obj,*~,*.pyc "stuff to ignore when tab completing
 set wildignore+=.env
@@ -121,19 +124,31 @@ au BufNewFile,BufRead *.js setf javascript
 au BufNewFile,BufRead *.jsm setf javascript
 " }}}
 
-"Mapleader: {{{
-let mapleader=","
-let g:mapleader=","
-let maplocalleader=","
-let g:maplocalleader=","
+"Key Maps: {{{
+let mapleader="\<Space>"
+let g:mapleader="\<Space>"
+let maplocalleader="\<Space>"
+let g:maplocalleader="\<Space>"
 
+nnoremap <Leader>s :w<CR>
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 nnoremap <Leader>h :noh<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>ghn :GitGutterNextHunk<CR>
+nnoremap <Leader>ghp :GitGutterPrevHunk<CR>
+nnoremap <Leader>ghr :GitGutterRevertHunk<CR>
+nnoremap <Leader>ghd :GitGutterPreviewHunk<CR>
+nnoremap <Leader>pt :NERDTreeToggle<CR>
+nnoremap <Leader>pf :FZF<CR>
 " }}}
-
-"Key mapping: {{{
-"}}}
 
 "neocomplete.vim: {{{
 let g:acp_enableAtStartup = 0
@@ -256,7 +271,7 @@ catch
 endtry
 " }}}
 
-"easymotion: {{{
+" easymotion: {{{
 map / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
@@ -268,4 +283,28 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "*"
+" }}}
+
+" Rainbow: {{{
+let g:rainbow_active=1
+" }}}
+
+" vim-multiple-cursors {{{
+" Called once right before you start selecting multiple cursors
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+
+" Called once only when the multiple selection is canceled (default <Esc>)
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
+" }}}
+
+" emmet-vim {{{
+let g:user_emmet_leader_key='<C-J>'
 " }}}
