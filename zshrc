@@ -61,6 +61,10 @@ __safe_path_dir() {
 # }}}
 
 # {{{ Libs and scripts
+#   {{{ Go
+  export GOPATH=$HOME/Go
+  export PATH=$PATH:$GOPATH/bin
+#   }}}
 #   {{{ Python
 
 __init_pyenv() {

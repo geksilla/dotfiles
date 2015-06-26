@@ -34,6 +34,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'no \| ./install'  }
 Plug 'terryma/vim-expand-region'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mattn/emmet-vim'
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+Plug 'moll/vim-bbye', { 'on': 'Bdelete' }
 
 call plug#end()
 " }}}
@@ -140,14 +143,21 @@ vmap <Leader>P "+P
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 nnoremap <Leader>h :noh<CR>
+nnoremap <Leader>bn :bn<CR>
+nnoremap <Leader>bp :bp<CR>
+nnoremap <Leader>bk :Bdelete<CR>
+
+" Git 
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>ghn :GitGutterNextHunk<CR>
 nnoremap <Leader>ghp :GitGutterPrevHunk<CR>
 nnoremap <Leader>ghr :GitGutterRevertHunk<CR>
 nnoremap <Leader>ghd :GitGutterPreviewHunk<CR>
+
 nnoremap <Leader>pt :NERDTreeToggle<CR>
 nnoremap <Leader>pf :FZF<CR>
+nnoremap <Leader>pst :TagbarToggle<CR>
 " }}}
 
 "neocomplete.vim: {{{
@@ -177,9 +187,14 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
       \: "\<TAB>"
 " }}}
 
-"Airline: {{{
+"vim-airline: {{{
 let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = '⮀'
+let g:airline#extensions#tabline#left_alt_sep = '⮁'
+
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -307,4 +322,15 @@ endfunction
 
 " emmet-vim {{{
 let g:user_emmet_leader_key='<C-J>'
+" }}}
+
+" vim-go {{{
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+au FileType go nmap <leader>mr <Plug>(go-run)
+au FileType go nmap <leader>mgg <Plug>(go-def)
 " }}}
