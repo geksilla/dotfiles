@@ -23,6 +23,7 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/colorize
   zgen oh-my-zsh plugins/nvm
   zgen oh-my-zsh plugins/rvm
+  zgen oh-my-zsh plugins/go
 
   zgen oh-my-zsh themes/miloshadzic
   zgen load jimmijj/zsh-syntax-highlighting

@@ -16,7 +16,6 @@
                                        python
                                        elixir
                                        markdown
-                                       themes-megapack
                                        syntax-checking
                                        vagrant
                                        git
@@ -29,7 +28,6 @@
                                         auto-completion-use-tab-instead-of-enter t)
                                        (colors
                                         :variables
-                                        colors-enable-rainbow-identifiers t
                                         colors-enable-nyan-cat-progress-bar t))
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -55,7 +53,8 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(jazz
+   dotspacemacs-themes '(spacemacs-dark
+                         jazz
                          molokai
                          solarized-dark
                          leuven
