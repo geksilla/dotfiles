@@ -24,6 +24,7 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/nvm
   zgen oh-my-zsh plugins/rvm
   zgen oh-my-zsh plugins/go
+  zgen oh-my-zsh plugins/vi-mode
 
   zgen oh-my-zsh themes/miloshadzic
   zgen load jimmijj/zsh-syntax-highlighting
@@ -49,6 +50,11 @@ bgnotify_formatted() {
 # Load private section
 
 [[ -f ~/.privaterc ]] && . ~/.privaterc
+
+# Key Bindings {{{
+bindkey '^f' vi-forward-word
+bindkey '^e' vi-end-of-line
+# }}}
 
 # Custom functions {{{
 command_exists () {

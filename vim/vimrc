@@ -40,6 +40,8 @@ Plug 'mattn/emmet-vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'moll/vim-bbye', { 'on': 'Bdelete' }
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
 
 call plug#end()
 " }}}
@@ -236,6 +238,8 @@ nnoremap <silent> <Leader>fa :<C-u>Unite -start-insert grep:. <CR>
 vnoremap <silent> <leader>fa "Zy :<C-u>Unite -start-insert grep:.<CR><C-r>Z<CR>
 " yank history
 nnoremap <silent> <leader>y :<C-u>Unite history/yank<CR>
+" buffer list
+nnoremap <silent> <Leader>bl :<C-u>Unite -start-insert buffer<CR>
 
 try
   " Set up some custom ignores
@@ -288,6 +292,14 @@ try
         \ ], '\|'))
 catch
 endtry
+
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " Enable navigation with control-j and control-k in insert mode
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
 " }}}
 
 " easymotion: {{{
