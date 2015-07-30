@@ -29,7 +29,7 @@ if ! zgen saved; then
   zgen oh-my-zsh themes/miloshadzic
   zgen load jimmijj/zsh-syntax-highlighting
   zgen load tarruda/zsh-autosuggestions
-  
+
   zgen save
 fi
 
@@ -95,6 +95,9 @@ __safe_path_dir $HOME/.linuxbrew/bin
 #   }}}
 #   {{{ rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load rvm
+#   }}}
+#   {{{ rsvm
+[[ -s "$HOME/.rsvm/rsvm.sh" ]] && source "$HOME/.rsvm/rsvm.sh" # Load rsvm
 #   }}}
 #   {{{ Third party 
 __safe_path_dir $HOME/scripts
