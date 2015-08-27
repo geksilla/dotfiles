@@ -3,6 +3,6 @@
 # key: it
 # binding: direct-keybinding
 # --
-it('$0', function() {
-  $1
+it('${1:message}', function() {
+  ${0:// body}
 });

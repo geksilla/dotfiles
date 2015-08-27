@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: beforeEach
-# key: beforeEach
+# name: bee
+# key: bee
 # binding: direct-keybinding
 # --
 beforeEach(function() {

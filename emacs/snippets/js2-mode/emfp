@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: emfp
+# key: emfp
+# binding: direct-keybinding
+# --
+
+${1:name}: function() {
+  ${0: //body}
+}.property(${2:props})

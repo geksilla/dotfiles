@@ -1,8 +1,8 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: afe
-# key: afe
+# name: fnn
+# key: fnn
 # binding: direct-keybinding
 # --
-afterEach(function() {
-  $0
-});
+function ${1:name} (${2:args}) {
+  ${0:// body}
+}

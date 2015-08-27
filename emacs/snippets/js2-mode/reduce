@@ -1,8 +1,8 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: afe
-# key: afe
+# name: red
+# key: red
 # binding: direct-keybinding
 # --
-afterEach(function() {
-  $0
+${1:array}.reduce(function(${2:args}) {
+  ${0:// body}
 });

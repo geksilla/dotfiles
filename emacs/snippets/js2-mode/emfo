@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: emfo
+# key: emfo
+# binding: direct-keybinding
+# --
+
+${1:name}: function() {
+  ${0: //body}
+}.observes(${2:props})

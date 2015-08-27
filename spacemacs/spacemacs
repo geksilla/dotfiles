@@ -14,6 +14,7 @@
                                        html
                                        ruby
                                        python
+                                       clojure
                                        elixir
                                        markdown
                                        syntax-checking
@@ -24,6 +25,7 @@
                                        org
                                        version-control
                                        ranger
+                                       shell
                                        (auto-completion
                                         :variables
                                         auto-completion-enable-company-help-tooltip t
@@ -135,10 +137,13 @@ layers configuration."
    js2-basic-offset 2
    c-basic-offset 2
    css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-markup-indent-offset 2
    powerline-default-separator 'zigzag
    org-src-fontify-natively t)
-  (global-linum-mode t)
-)
+  (global-linum-mode t))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

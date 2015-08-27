@@ -1,6 +1,8 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: fnc
-# key: fnc
+# name: fe
+# key: fe
 # binding: direct-keybinding
 # --
-function($1) {$0}
+${1:array}.forEach(function(${2:args}) {
+  ${0:// body}
+});

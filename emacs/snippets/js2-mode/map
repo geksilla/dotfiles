@@ -1,8 +1,9 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: afe
-# key: afe
+# name: map
+# key: map
 # binding: direct-keybinding
 # --
-afterEach(function() {
-  $0
+
+${1:array}.map(function(${2:args}) {
+  ${0:// body}
 });

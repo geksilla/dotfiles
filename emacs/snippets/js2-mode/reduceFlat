@@ -1,8 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: afe
-# key: afe
+# name: redf
+# key: redf
 # binding: direct-keybinding
 # --
-afterEach(function() {
-  $0
-});
+reduce(function(p, c) { return p.concat(c); });
