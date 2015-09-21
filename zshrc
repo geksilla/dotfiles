@@ -90,6 +90,7 @@ __safe_path_dir $HOME/.lein
 #   }}}
 #   {{{ Linux Brew
 __safe_path_dir $HOME/.linuxbrew/bin
+__safe_path_dir $HOME/.linuxbrew/sbin
 #   }}}
 #   {{{ nvm
 [[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh" # This loads nvm

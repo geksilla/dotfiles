@@ -2,3 +2,4 @@ emacs/*
 !emacs/init.el
 !emacs/setup/
 !emacs/snippets/
+.tern-*
