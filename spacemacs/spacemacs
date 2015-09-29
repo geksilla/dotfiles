@@ -27,6 +27,7 @@
                                        ranger
                                        shell
                                        emacs-lisp
+                                       spell-checking
                                        (auto-completion
                                         :variables
                                         auto-completion-enable-company-help-tooltip t

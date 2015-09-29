@@ -70,7 +70,7 @@ __safe_path_dir() {
 # {{{ Libs and scripts
 #   {{{ Go
   export GOPATH=$HOME/Go
-  export GOBIN=$HOME/GO/bin
+  export GOBIN=$HOME/Go/bin
   export PATH=$PATH:$GOPATH/bin
 #   }}}
 #   {{{ Python
