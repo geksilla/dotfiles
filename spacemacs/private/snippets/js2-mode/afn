@@ -3,6 +3,6 @@
 # key: afn
 # binding: direct-keybinding
 # --
-function (${1:args}) {
+function(${1:args}) {
   ${0:// body}
 }

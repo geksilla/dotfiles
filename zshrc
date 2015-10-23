@@ -19,7 +19,7 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/vagrant
   zgen oh-my-zsh plugins/docker
   zgen oh-my-zsh plugins/jump
-  zgen oh-my-zsh plugins/colored-man
+  zgen oh-my-zsh plugins/colored-man-pages
   zgen oh-my-zsh plugins/colorize
   zgen oh-my-zsh plugins/nvm
   zgen oh-my-zsh plugins/rvm
