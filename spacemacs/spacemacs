@@ -28,7 +28,7 @@ values."
       :variables
       js-indent-level 2
       js2-basic-offset 2
-      javascript-enable-jsfmt t)
+      )
      ruby
      python
      clojure
@@ -47,12 +47,12 @@ values."
      spell-checking
      (auto-completion
       :variables
-      auto-completion-enable-company-help-tooltip t
+      auto-completion-enable-help-tooltip t
       auto-completion-use-tab-instead-of-enter t)
      (colors
       :variables
       colors-enable-nyan-cat-progress-bar t)
-     )
+     (deft :variables deft-directory "~/Dropbox/deft"))
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
@@ -238,18 +238,6 @@ layers configuration. You are free to put any user code."
     (let ((line-number (cadr (split-string (call-interactively 'what-line)))))
       (kill-new (concat (geksilla/relative-file-name) ":" line-number))))
 
-  (defun geksilla/toggle-jsfmt-mode ()
-    "Toggle jsfmt mode"
-    (interactive)
-    (cond ((eq javascript-enable-jsfmt t)
-           (remove-hook 'before-save-hook 'jsfmt-before-save)
-           (setq javascript-enable-jsfmt nil)
-           (message "jsfmt disabled"))
-          ((eq javascript-enable-jsfmt nil)
-           (add-hook 'before-save-hook 'jsfmt-before-save)
-           (setq javascript-enable-jsfmt t)
-           (message "jsfmt enabled"))))
-
   (add-to-list 'auto-mode-alist '("\\.emblem\\'" . slim-mode))
   )
 
@@ -262,7 +250,7 @@ layers configuration. You are free to put any user code."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (evil-mc evil-indent-textobject which-key web-mode web-beautify vagrant-tramp vagrant use-package toc-org tagedit spacemacs-theme smeargle slim-mode shell-pop scss-mode sass-mode ruby-tools ruby-test-mode ruby-end robe restart-emacs ranger rainbow-mode rainbow-identifiers quelpa pyvenv pytest pyenv-mode popwin pip-requirements page-break-lines org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets multi-term mmm-mode markdown-toc magit-gitflow magit-gh-pulls macrostep less-css-mode json-mode jsfmt js2-refactor js-doc jade-mode ido-vertical-mode hy-mode htmlize helm-pydoc helm-projectile helm-gitignore helm-flyspell helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet gruvbox-theme go-eldoc gnuplot github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh-md flycheck-pos-tip fill-column-indicator exec-path-from-shell evil-visualstar evil-surround evil-leader evil-escape eshell-prompt-extras esh-help emmet-mode elisp-slime-nav diff-hl cython-mode company-web company-tern company-statistics company-quickhelp company-go company-anaconda coffee-mode clj-refactor cider-eval-sexp-fu bundler auto-yasnippet auto-compile align-cljlet alchemist ac-ispell))))
+    (magit magit-popup git-commit with-editor evil-magit evil-mc evil-indent-textobject which-key web-mode web-beautify vagrant-tramp vagrant use-package toc-org tagedit spacemacs-theme smeargle slim-mode shell-pop scss-mode sass-mode ruby-tools ruby-test-mode ruby-end robe restart-emacs ranger rainbow-mode rainbow-identifiers quelpa pyvenv pytest pyenv-mode popwin pip-requirements page-break-lines org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets multi-term mmm-mode markdown-toc magit-gitflow magit-gh-pulls macrostep less-css-mode json-mode jsfmt js2-refactor js-doc jade-mode ido-vertical-mode hy-mode htmlize helm-pydoc helm-projectile helm-gitignore helm-flyspell helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet gruvbox-theme go-eldoc gnuplot github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh-md flycheck-pos-tip fill-column-indicator exec-path-from-shell evil-visualstar evil-surround evil-leader evil-escape eshell-prompt-extras esh-help emmet-mode elisp-slime-nav diff-hl cython-mode company-web company-tern company-statistics company-quickhelp company-go company-anaconda coffee-mode clj-refactor cider-eval-sexp-fu bundler auto-yasnippet auto-compile align-cljlet alchemist ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
