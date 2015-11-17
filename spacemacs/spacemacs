@@ -27,8 +27,7 @@ values."
      (javascript
       :variables
       js-indent-level 2
-      js2-basic-offset 2
-      )
+      js2-basic-offset 2)
      ruby
      python
      clojure
@@ -57,7 +56,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(stylus-mode jade-mode)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -218,11 +217,15 @@ layers configuration. You are free to put any user code."
    tab-width 2
    c-basic-offset 2
    powerline-default-separator 'zigzag
+   ;; let use eslint
    flycheck-disabled-checkers '(javascript-jshint)
    org-src-fontify-natively t)
+
   (global-linum-mode t)
+  (golden-ratio-mode t)
 
   (defun geksilla/relative-file-name ()
+    "Helper to get relative path according to project root"
     (let ((project-root (projectile-project-root))
           (file-name (buffer-file-name)))
       (if project-root
@@ -230,16 +233,18 @@ layers configuration. You are free to put any user code."
         (nil))))
 
   (defun geksilla/copy-file-path ()
+    "Copy current buffer file name to clipboard"
     (interactive)
     (kill-new (geksilla/relative-file-name)))
 
   (defun geksilla/copy-file-path-with-ln ()
+    "Copy current buffer file name and line number where cursor located to clipboard"
     (interactive)
     (let ((line-number (cadr (split-string (call-interactively 'what-line)))))
       (kill-new (concat (geksilla/relative-file-name) ":" line-number))))
 
-  (add-to-list 'auto-mode-alist '("\\.emblem\\'" . slim-mode))
-  )
+  (add-to-list 'auto-mode-alist '("\\.emblem\\'" . jade-mode))
+  (add-to-list 'auto-mode-alist '("\\.styl\\'" . stylus-mode)))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

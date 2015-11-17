@@ -1,4 +1,4 @@
-# Dotfiles
+# Dotfiles [WIP]
 
 ## Installation
 
@@ -20,6 +20,22 @@ Install [zgen](https://github.com/tarjoilija/zgen)
 
 Relogin from the terminal
 
+### Tmux
+
+Install [tmux](https://tmux.github.io/)
+
+*Mac*
+
+    $ brew install tmux
+
+*Ubuntu/Debian*
+
+    $ sudo apt-get install tmux
+
+
+Install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
+
+    $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ### Emacs
 
@@ -28,6 +44,10 @@ Install latest emacs.
 Install [spacemacs](https://github.com/syl20bnr/spacemacs).
 
     $ git clone --recursive https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
+**Note:**
+
+[Magit package](https://github.com/magit/magit) works properly with Git 2.x.
 
 ### Vim
 

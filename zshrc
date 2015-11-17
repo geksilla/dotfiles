@@ -5,6 +5,7 @@
 export SHELL=/bin/zsh
 export EDITOR="vim"
 export TERM=xterm-256color
+export KEYTIMEOUT=1
 # }}}
 
 # {{{ PLugins
@@ -25,6 +26,9 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/rvm
   zgen oh-my-zsh plugins/go
   zgen oh-my-zsh plugins/vi-mode
+  zgen oh-my-zsh plugins/copyfile
+  zgen oh-my-zsh plugins/copydir
+  zgen oh-my-zsh plugins/themes
 
   zgen oh-my-zsh themes/miloshadzic
   zgen load jimmijj/zsh-syntax-highlighting
@@ -52,8 +56,8 @@ bgnotify_formatted() {
 [[ -f ~/.privaterc ]] && . ~/.privaterc
 
 # Key Bindings {{{
-bindkey '^f' vi-forward-word
-bindkey '^e' vi-end-of-line
+bindkey '^f' forward-word
+bindkey '^e' end-of-line
 # }}}
 
 # Custom functions {{{
