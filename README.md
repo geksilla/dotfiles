@@ -8,15 +8,27 @@ Install [zsh](http://www.zsh.org/)
 
 *Ubuntu/Debian*
 
-    $ sudo apt-get install zsh && sudo chsh -s /bin/zsh 
+```
+$ sudo apt-get install zsh && sudo chsh -s /bin/zsh
+```
 
 *Mac*
 
-    $ brew install zsh zsh-completions
+```
+$ brew install zsh zsh-completions
+```
     
 Install [zgen](https://github.com/tarjoilija/zgen)
 
-    $ mkdir -p ~/scripts; git clone https://github.com/tarjoilija/zgen ~/scripts/zgen
+```
+$ mkdir -p ~/scripts; git clone https://github.com/tarjoilija/zgen ~/scripts/zgen
+```
+
+Install ~zsh~ dotfile.
+
+```
+$ ln -s ~/dotfile/zshrc ~/.zshrc
+```
 
 Relogin from the terminal
 
@@ -26,16 +38,28 @@ Install [tmux](https://tmux.github.io/)
 
 *Mac*
 
-    $ brew install tmux
+```
+$ brew install tmux
+```
 
 *Ubuntu/Debian*
 
-    $ sudo apt-get install tmux
+```
+$ sudo apt-get install tmux
+```
 
 
 Install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 
-    $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+$ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+Install ~tmux~ dotfile.
+
+```
+$ ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+```
 
 ### Emacs
 
@@ -43,7 +67,17 @@ Install latest emacs.
 
 Install [spacemacs](https://github.com/syl20bnr/spacemacs).
 
-    $ git clone --recursive https://github.com/syl20bnr/spacemacs ~/.emacs.d
+```
+$ git clone --recursive https://github.com/syl20bnr/spacemacs ~/.emacs.d
+```
+
+Install ~spacemacs~ dotfile.
+
+```
+$ ln -s ~/dotfiles/spacemacs/spacemacs ~/.spacemacs
+```
+
+Start Emacs.
 
 **Note:**
 
@@ -53,16 +87,23 @@ Install [spacemacs](https://github.com/syl20bnr/spacemacs).
 
 Install latest vim
 
-    $ brew install --with-lua --with-luajit --with-python vim
+```
+$ brew install --with-lua --with-luajit --with-python vim
+```
 
 Install [vim-plug](https://github.com/junegunn/vim-plug)
 
-    $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
 
 On first launch
 
-    $ vim -c "PlugInstall | q"
+```
+$ ln -s ~/dotfiles/vimrc ~/.vimrc
+$ vim -c "PlugInstall | q"
+```
 
 And vim is ready!
 
@@ -83,10 +124,17 @@ $ brew tap peco/peco && brew install peco
 * [fzf](https://github.com/junegunn/fzf)
 
 ```
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+$ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 ```
 *NOTE*: During fzf installation prompt decline auto-completion support, since it breaks
 autosuggestions.
+
+* [pygments](http://pygments.org/)
+oh-my-zsh *colorize* plugin uses pygments to colorize output.
+
+```
+$ pip install pygments
+```
 
 ### Node/javascript
 
