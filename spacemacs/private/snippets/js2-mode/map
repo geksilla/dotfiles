@@ -5,5 +5,5 @@
 # --
 
 ${1:array}.map(function(${2:args}) {
-  ${0:// body}
+  ${2:// body}
 });

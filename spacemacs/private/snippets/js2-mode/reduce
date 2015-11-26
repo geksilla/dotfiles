@@ -4,5 +4,5 @@
 # binding: direct-keybinding
 # --
 ${1:array}.reduce(function(${2:args}) {
-  ${0:// body}
+  ${2:// body}
 });

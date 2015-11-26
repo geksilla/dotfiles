@@ -5,5 +5,5 @@
 # --
 
 ${1:propertyName}: function(${2:arguments}) {
-  ${0:// body}
+  ${2:// body}
 }

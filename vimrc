@@ -355,4 +355,5 @@ au FileType go nmap <leader>mpb <Plug>(go-build)
 
 " session {{{
 let g:session_autoload = 'no'
+let g:session_autosave = 'yes'
 " }}}

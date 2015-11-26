@@ -5,5 +5,5 @@
 # --
 
 ${1:name}: function() {
-  ${0: //body}
+  ${1: //body}
 }.observes(${2:props})
