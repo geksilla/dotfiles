@@ -65,6 +65,17 @@ $ ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 
 Install latest emacs.
 
+*Ubuntu/Debian*
+
+Install latest emacs. I'm using emacs-snapshot. To install emacs-snapshot:
+
+```
+sudo add-apt-repository -y ppa:ubuntu-elisp
+sudo apt-get update
+sudo apt-get install emacs-snapshot
+sudo update-alternatives --set emacs /usr/bin/emacs-snapshot
+```
+
 Install [spacemacs](https://github.com/syl20bnr/spacemacs).
 
 ```
