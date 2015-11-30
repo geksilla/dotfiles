@@ -76,6 +76,13 @@ sudo apt-get install emacs-snapshot
 sudo update-alternatives --set emacs /usr/bin/emacs-snapshot
 ```
 
+Or using linuxbrew:
+
+```
+export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig:/usr/share/pkgconfig:$PKG_CONFIG_PATH
+brew reinstall --HEAD --with-glib --with-x11 --env=inherit emacs
+```
+
 Install [spacemacs](https://github.com/syl20bnr/spacemacs).
 
 ```

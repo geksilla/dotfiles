@@ -42,6 +42,7 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'moll/vim-bbye', { 'on': 'Bdelete' }
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
+Plug 'bogado/file-line'
 
 call plug#end()
 " }}}
