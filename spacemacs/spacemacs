@@ -30,7 +30,7 @@ values."
       js2-basic-offset 2)
      ruby
      python
-;;     clojure
+     clojure
      elixir
      markdown
      syntax-checking
@@ -39,7 +39,9 @@ values."
      github
      go
      org
-     version-control
+     (version-control
+      :variables
+      version-control-diff-tool 'diff-hl)
      ranger
      shell
      emacs-lisp
@@ -58,7 +60,7 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(stylus-mode jade-mode)
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(evil-anzu flycheck-pos-tip github-clone helm-themes json-mode move-text gist magit-gh-pulls)
+   dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
@@ -225,6 +227,10 @@ layers configuration. You are free to put any user code."
   (global-linum-mode t)
   (golden-ratio-mode t)
 
+  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
   (defun geksilla/relative-file-name ()
     "Helper to get relative path according to project root"
     (let ((project-root (projectile-project-root))
@@ -256,7 +262,7 @@ layers configuration. You are free to put any user code."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (rubocop rspec-mode flycheck-pos-tip evil-anzu ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe vagrant-tramp vagrant use-package toc-org tagedit stylus-mode spray spacemacs-theme spaceline smooth-scrolling smeargle slim-mode shell-pop scss-mode sass-mode ruby-tools ruby-test-mode ruby-end robe restart-emacs ranger rainbow-mode rainbow-identifiers rainbow-delimiters quelpa pyvenv pytest pyenv-mode popwin pip-requirements persp-mode pcre2el paradox page-break-lines org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme less-css-mode json-snatcher js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag gruvbox-theme google-translate golden-ratio go-eldoc gnuplot github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flycheck flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args eval-sexp-fu eshell-prompt-extras esh-help emmet-mode elisp-slime-nav diff-hl deft define-word cython-mode company-web company-tern company-statistics company-quickhelp company-go company-anaconda coffee-mode clean-aindent-mode bundler buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (move-text magit-gh-pulls json-mode helm-themes gist github-clone git-gutter-fringe+ git-gutter-fringe git-gutter+ git-gutter rubocop rspec-mode flycheck-pos-tip evil-anzu ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe vagrant-tramp vagrant use-package toc-org tagedit stylus-mode spray spacemacs-theme spaceline smooth-scrolling smeargle slim-mode shell-pop scss-mode sass-mode ruby-tools ruby-test-mode ruby-end robe restart-emacs ranger rainbow-mode rainbow-identifiers rainbow-delimiters quelpa pyvenv pytest pyenv-mode popwin pip-requirements persp-mode pcre2el paradox page-break-lines org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme less-css-mode json-snatcher js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag gruvbox-theme google-translate golden-ratio go-eldoc gnuplot github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flycheck flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args eval-sexp-fu eshell-prompt-extras esh-help emmet-mode elisp-slime-nav diff-hl deft define-word cython-mode company-web company-tern company-statistics company-quickhelp company-go company-anaconda coffee-mode clean-aindent-mode bundler buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

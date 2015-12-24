@@ -1,0 +1,54 @@
+{
+  ;; Layers you wish to have active
+  ;; To get a list of all available layers, check foo.com/layers
+  :layers
+  [ :core
+    :tools/git
+    :lang/clojure
+    :lang/python
+    :lang/elixir
+    :lang/markdown
+    :tools/linter
+    :lang/javascript
+    :fun/power_mode]
+
+  ;; Packages that are not part of a layer. List them here as keyword
+  ;; All packages will be ensured to be installed. Stuff that is not listed here
+  ;; Will get uninstalled so choose wisely!
+  :additional-packages
+  [:terminal-plus
+   :git-diff-details
+   :atom-fuzzy-grep
+   :line-diff-details
+   :project-manager
+   :proto-repl
+   :smalls
+   :slime]
+
+  ;; Don't like a keybinding or want to add something yourself? Do it here
+  ;; (not implemented yet)
+  :keybindings
+  {:p {:S {:action "fuzzy-grep:toggle"}
+       :p {:action "project-manager:list-projects" :title "project list"}
+       :e {:action "project-manager:edit-projects" :title "edit project"}
+       :a {:action "project-manager:save-project" :title "save project"}}
+   :g { :d {
+            :t {:action "git-diff-details:toggle-git-diff-details" :target "atom-text-editor.is-focused:not(.mini)"}
+            :r {:action "git-diff-details:undo" :target "atom-text-editor.is-focused:not(.mini)"}}}}
+
+  :configuration
+    [["git-history.showDiff" false]
+     ["editor.fontSize" 13]
+     ["editor.fontFamily" "Input"]
+     ["core.themes" ["atom-material-ui" "slime"]]
+     ["proton.lang.javascript.linter" "eslint"]
+     ["tree-view.showOnRightSide" true]
+     ["linter.lintOnFly" false]]
+
+  ;; Want some custom behavior inside a certain window?
+  ;; For example you prefer navigating with esc and enter? Add it here.
+  :keymaps [{:selector "body atom-text-editor.vim-mode-plus:not(.insert-mode)" :keymap [["space" "proton:toggle"]]}
+            {:selector "atom-text-editor.vim-mode:not(.insert-mode)" :keymap [["space" "proton:toggle"]]}
+            {:selector "atom-text-editor.vim-mode-plus.normal-mode" :keymap [["y s" "vim-mode-plus:surround"]
+                                                                             ["d s" "vim-mode-plus:delete-surround"]
+                                                                             ["c s" "vim-mode-plus:change-surround"]]}]}
