@@ -67,7 +67,9 @@ Install latest emacs.
 
 *Ubuntu/Debian*
 
-Install latest emacs. I'm using emacs-snapshot. To install emacs-snapshot:
+Better to use emacs 24.5-1.
+
+For latest emacs version install from emacs-snapshot ppa:
 
 ```
 sudo add-apt-repository -y ppa:ubuntu-elisp
