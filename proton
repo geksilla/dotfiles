@@ -6,7 +6,8 @@
     :tools/git
     :lang/clojure
     :lang/python
-    :lang/elixir
+    ;:lang/elixir
+    ;:lang/julia
     :lang/markdown
     :tools/linter
     :lang/javascript
@@ -23,32 +24,35 @@
    :project-manager
    :proto-repl
    :smalls
-   :slime]
+   :dracula-theme
+   :dracula-ui]
 
   ;; Don't like a keybinding or want to add something yourself? Do it here
   ;; (not implemented yet)
   :keybindings
-  {:p {:S {:action "fuzzy-grep:toggle"}
-       :p {:action "project-manager:list-projects" :title "project list"}
+  {:p {:p {:action "project-manager:list-projects" :title "project list"}
        :e {:action "project-manager:edit-projects" :title "edit project"}
        :a {:action "project-manager:save-project" :title "save project"}}
-   :g { :d {
-            :t {:action "git-diff-details:toggle-git-diff-details" :target "atom-text-editor.is-focused:not(.mini)"}
-            :r {:action "git-diff-details:undo" :target "atom-text-editor.is-focused:not(.mini)"}}}}
+   :ctrl-f {:action "fuzzy-grep:toggle"}
+   :g {:d {
+           :t {:action "git-diff-details:toggle-git-diff-details" :target "atom-text-editor.is-focused:not(.mini)"}
+           :r {:action "git-diff-details:undo" :target "atom-text-editor.is-focused:not(.mini)"}}}
+   :s {:l {:action "symbols-view:toggle-file-symbols" :target "atom-text-editor:not([mini])" :title "file symbols"}}}
 
   :configuration
     [["git-history.showDiff" false]
      ["editor.fontSize" 13]
+     ["activate-power-mode.particles.spawnCount.max" 8]
+     ["activate-power-mode.particles.spawnCount.min" 2]
+     ["activate-power-mode.particles.totalCount.max" 150]
      ["editor.fontFamily" "Input"]
-     ["core.themes" ["atom-material-ui" "slime"]]
+     ["core.themes" ["dracula-ui" "dracula-theme"]]
      ["proton.lang.javascript.linter" "eslint"]
-     ["tree-view.showOnRightSide" true]
+     ["linter-pep8.ignoreErrorCodes" ["E111"]]
      ["linter.lintOnFly" false]]
 
   ;; Want some custom behavior inside a certain window?
   ;; For example you prefer navigating with esc and enter? Add it here.
-  :keymaps [{:selector "body atom-text-editor.vim-mode-plus:not(.insert-mode)" :keymap [["space" "proton:toggle"]]}
-            {:selector "atom-text-editor.vim-mode:not(.insert-mode)" :keymap [["space" "proton:toggle"]]}
-            {:selector "atom-text-editor.vim-mode-plus.normal-mode" :keymap [["y s" "vim-mode-plus:surround"]
+  :keymaps [{:selector "atom-text-editor.vim-mode-plus.normal-mode" :keymap [["y s" "vim-mode-plus:surround"]
                                                                              ["d s" "vim-mode-plus:delete-surround"]
                                                                              ["c s" "vim-mode-plus:change-surround"]]}]}
