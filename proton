@@ -6,8 +6,6 @@
     :tools/git
     :lang/clojure
     :lang/python
-    ;:lang/elixir
-    ;:lang/julia
     :lang/markdown
     :tools/linter
     :lang/javascript
@@ -20,12 +18,15 @@
   [:terminal-plus
    :git-diff-details
    :atom-fuzzy-grep
-   :line-diff-details
    :project-manager
-   :proto-repl
    :smalls
-   :dracula-theme
-   :dracula-ui]
+   :minimap-git-diff
+   :golden-ratio
+   :Zen
+   :typewriter
+   :slime
+   :an-old-hope-syntax
+   :nucleus-dark-ui]
 
   ;; Don't like a keybinding or want to add something yourself? Do it here
   ;; (not implemented yet)
@@ -34,6 +35,8 @@
        :e {:action "project-manager:edit-projects" :title "edit project"}
        :a {:action "project-manager:save-project" :title "save project"}}
    :ctrl-f {:action "fuzzy-grep:toggle"}
+   :t {:g {:action "golden-ratio:toggle" :title "golden ratio"}
+       :z {:action "zen:toggle" :target "atom-text-editor:not([mini])" :title "zen view"}}
    :g {:d {
            :t {:action "git-diff-details:toggle-git-diff-details" :target "atom-text-editor.is-focused:not(.mini)"}
            :r {:action "git-diff-details:undo" :target "atom-text-editor.is-focused:not(.mini)"}}}
@@ -42,13 +45,20 @@
   :configuration
     [["git-history.showDiff" false]
      ["editor.fontSize" 13]
-     ["activate-power-mode.particles.spawnCount.max" 8]
-     ["activate-power-mode.particles.spawnCount.min" 2]
-     ["activate-power-mode.particles.totalCount.max" 150]
+    ;  ["activate-power-mode.particles.spawnCount.max" 8]
+    ;  ["activate-power-mode.particles.spawnCount.min" 2]
+    ;  ["activate-power-mode.particles.totalCount.max" 150]
      ["editor.fontFamily" "Input"]
-     ["core.themes" ["dracula-ui" "dracula-theme"]]
+     ["core.themes" ["nucleus-dark-ui" "an-old-hope-syntax"]]
      ["proton.lang.javascript.linter" "eslint"]
+     ["zentabs.maximumOpenedTabs" 5]
      ["linter-pep8.ignoreErrorCodes" ["E111"]]
+     ["editor.preferredLineLength" 100]
+     ["editor.tabLength" 2]
+     ["editor.softWrap" false]
+     ["Zen.width" 160]
+     ["nuclide.showHome" false]
+     ["git-diff.showIconsInEditorGutter" true]
      ["linter.lintOnFly" false]]
 
   ;; Want some custom behavior inside a certain window?

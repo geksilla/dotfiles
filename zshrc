@@ -67,7 +67,12 @@ command_exists () {
 
 # helper function to set path safely
 __safe_path_dir() {
-    [[ -d $1 ]] && PATH=$1:$PATH
+    [[ -d $1 ]] && PATH=$1:$PATH || echo -e "I'm not existing folder: $1"
+}
+
+# helper function to source file safely
+__safe_source() {
+  [[ -s $1 ]] && source $1 || echo -e "I'm not existing file: $1"
 }
 # }}}
 
@@ -97,13 +102,16 @@ __safe_path_dir $HOME/.linuxbrew/bin
 __safe_path_dir $HOME/.linuxbrew/sbin
 #   }}}
 #   {{{ nvm
-[[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh" # This loads nvm
+__safe_source $HOME/.nvm/nvm.sh # this loads nvm
 #   }}}
 #   {{{ rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load rvm
 #   }}}
 #   {{{ rsvm
 [[ -s "$HOME/.rsvm/rsvm.sh" ]] && source "$HOME/.rsvm/rsvm.sh" # Load rsvm
+#   }}}
+#   {{{ Tmuxinator completions
+__safe_source $HOME/completions/tmuxinator.zsh
 #   }}}
 #   {{{ Third party 
 __safe_path_dir $HOME/scripts
