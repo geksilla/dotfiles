@@ -76,6 +76,7 @@ __safe_source() {
 }
 # }}}
 
+__safe_path_dir /usr/local/sbin
 # {{{ Libs and scripts
 #   {{{ Go
   export GOPATH=$HOME/Go

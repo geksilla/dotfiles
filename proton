@@ -18,10 +18,6 @@
   [:terminal-plus
    :git-diff-details
    :atom-fuzzy-grep
-   :project-manager
-   :smalls
-   :minimap-git-diff
-   :golden-ratio
    :Zen
    :typewriter
    :slime
@@ -31,12 +27,8 @@
   ;; Don't like a keybinding or want to add something yourself? Do it here
   ;; (not implemented yet)
   :keybindings
-  {:p {:p {:action "project-manager:list-projects" :title "project list"}
-       :e {:action "project-manager:edit-projects" :title "edit project"}
-       :a {:action "project-manager:save-project" :title "save project"}}
-   :ctrl-f {:action "fuzzy-grep:toggle"}
-   :t {:g {:action "golden-ratio:toggle" :title "golden ratio"}
-       :z {:action "zen:toggle" :target "atom-text-editor:not([mini])" :title "zen view"}}
+  {:ctrl-f {:action "fuzzy-grep:toggle"}
+   :t {:z {:action "zen:toggle" :target "atom-text-editor:not([mini])" :title "zen view"}}
    :g {:d {
            :t {:action "git-diff-details:toggle-git-diff-details" :target "atom-text-editor.is-focused:not(.mini)"}
            :r {:action "git-diff-details:undo" :target "atom-text-editor.is-focused:not(.mini)"}}}
