@@ -49,6 +49,7 @@ values."
      (auto-completion
       :variables
       auto-completion-enable-help-tooltip t
+      auto-completion-enable-snippets-in-popup t
       auto-completion-use-tab-instead-of-enter t)
      (colors
       :variables
