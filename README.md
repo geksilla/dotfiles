@@ -146,8 +146,7 @@ $ brew tap peco/peco && brew install peco
 ```
 $ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 ```
-*NOTE*: During fzf installation prompt decline auto-completion support, since it breaks
-autosuggestions.
+*NOTE*: fzf-completion key binding remaped to `Ctrl-S` instead of `Tab`.
 
 * [pygments](http://pygments.org/)
 oh-my-zsh *colorize* plugin uses pygments to colorize output.
