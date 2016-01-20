@@ -7,6 +7,7 @@
     :lang/clojure
     :lang/python
     :lang/markdown
+    :lang/html
     :tools/linter
     :lang/javascript
     :fun/power_mode]

@@ -55,10 +55,6 @@ bgnotify_formatted() {
 
 [[ -f ~/.privaterc ]] && . ~/.privaterc
 
-# Key Bindings {{{
-bindkey '^f' forward-word
-bindkey '^e' end-of-line
-# }}}
 
 # Custom functions {{{
 command_exists () {
@@ -129,3 +125,10 @@ alias cat="colorize"
 alias npm-exec='PATH=$(npm bin):$PATH'
 alias enw="emacs -nw"
 # }}} 
+
+# Key Bindings {{{
+bindkey '^f' forward-word
+bindkey '^e' end-of-line
+bindkey '^I' expand-or-complete
+bindkey '^s' fzf-completion
+# }}}
