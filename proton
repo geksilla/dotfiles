@@ -22,7 +22,11 @@
    :Zen
    :typewriter
    :slime
+   :pomodoro
+   :json-path-finder
    :an-old-hope-syntax
+   :tab-control
+   :symbols-tree-view
    :nucleus-dark-ui]
 
   ;; Don't like a keybinding or want to add something yourself? Do it here
@@ -30,10 +34,10 @@
   :keybindings
   {:ctrl-f {:action "fuzzy-grep:toggle"}
    :t {:z {:action "zen:toggle" :target "atom-text-editor:not([mini])" :title "zen view"}}
-   :g {:d {
-           :t {:action "git-diff-details:toggle-git-diff-details" :target "atom-text-editor.is-focused:not(.mini)"}
+   :g {:d {:t {:action "git-diff-details:toggle-git-diff-details" :target "atom-text-editor.is-focused:not(.mini)"}
            :r {:action "git-diff-details:undo" :target "atom-text-editor.is-focused:not(.mini)"}}}
-   :s {:l {:action "symbols-view:toggle-file-symbols" :target "atom-text-editor:not([mini])" :title "file symbols"}}}
+   :s {:l {:action "symbols-view:toggle-file-symbols" :target "atom-text-editor:not([mini])" :title "file symbols"}
+       :t {:action "symbols-tree-view:toggle" :title "symbols tree"}}}
 
   :configuration
     [["git-history.showDiff" false]
@@ -52,6 +56,7 @@
      ["Zen.width" 160]
      ["nuclide.showHome" false]
      ["git-diff.showIconsInEditorGutter" true]
+     ["atom-fuzzy-grep.showFullPath" true]
      ["linter.lintOnFly" false]]
 
   ;; Want some custom behavior inside a certain window?
