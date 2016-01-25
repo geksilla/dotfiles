@@ -5,9 +5,14 @@
   [ :core
     :tools/git
     :lang/clojure
-    :lang/python
+    ;:lang/python
     :lang/markdown
     :lang/html
+    :lang/handlebars
+    :lang/json
+    :lang/less
+    :lang/css
+    :config-files/docker
     :tools/linter
     :lang/javascript
     :fun/power_mode]
@@ -16,14 +21,14 @@
   ;; All packages will be ensured to be installed. Stuff that is not listed here
   ;; Will get uninstalled so choose wisely!
   :additional-packages
-  [:terminal-plus
-   :git-diff-details
+  [:git-diff-details
    :atom-fuzzy-grep
    :Zen
+   :term3
    :typewriter
    :slime
-   :pomodoro
-   :json-path-finder
+   :stacktrace
+   :todo-show
    :an-old-hope-syntax
    :tab-control
    :symbols-tree-view
@@ -37,7 +42,8 @@
    :g {:d {:t {:action "git-diff-details:toggle-git-diff-details" :target "atom-text-editor.is-focused:not(.mini)"}
            :r {:action "git-diff-details:undo" :target "atom-text-editor.is-focused:not(.mini)"}}}
    :s {:l {:action "symbols-view:toggle-file-symbols" :target "atom-text-editor:not([mini])" :title "file symbols"}
-       :t {:action "symbols-tree-view:toggle" :title "symbols tree"}}}
+       :t {:action "symbols-tree-view:toggle" :title "symbols tree"}
+       :T {:action "todo-show:find-in-project"}}}
 
   :configuration
     [["git-history.showDiff" false]
@@ -62,5 +68,6 @@
   ;; Want some custom behavior inside a certain window?
   ;; For example you prefer navigating with esc and enter? Add it here.
   :keymaps [{:selector "atom-text-editor.vim-mode-plus.normal-mode" :keymap [["y s" "vim-mode-plus:surround"]
-                                                                             ["d s" "vim-mode-plus:delete-surround"]
-                                                                             ["c s" "vim-mode-plus:change-surround"]]}]}
+                                                                             ["d s" "vim-mode-plus:delete-surround"]]}
+            {:selector "atom-workspace atom-text-editor.vim-mode-plus.visual-mode" :keymap [["v" ["expand-region:expand"]]
+                                                                                            ["ctrl-v" ["expand-region:shrink"]]]}]}

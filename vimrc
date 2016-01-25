@@ -80,6 +80,7 @@ set hlsearch
 set incsearch
 set noshowmode
 set showmatch
+set showcmd
 
 colorscheme jellybeans
 " get my shell
@@ -155,10 +156,10 @@ nnoremap <Leader>bk :Bdelete<CR>
 
 " Git 
 nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>ghn :GitGutterNextHunk<CR>
-nnoremap <Leader>ghp :GitGutterPrevHunk<CR>
-nnoremap <Leader>ghr :GitGutterRevertHunk<CR>
+nnoremap <Leader>gD :Gdiff<CR>
+nnoremap <Leader>gdn :GitGutterNextHunk<CR>
+nnoremap <Leader>gdN :GitGutterPrevHunk<CR>
+nnoremap <Leader>gdr :GitGutterRevertHunk<CR>
 nnoremap <Leader>ghd :GitGutterPreviewHunk<CR>
 
 nnoremap <Leader>pt :NERDTreeToggle<CR>
@@ -352,6 +353,19 @@ au FileType go nmap <leader>mgg <Plug>(go-def)
 au FileType go nmap <leader>mgd <Plug>(go-doc)
 au FileType go nmap <leader>mpr <Plug>(go-run)
 au FileType go nmap <leader>mpb <Plug>(go-build)
+" }}}
+"
+" javascript {{{
+
+let g:tern_show_argument_hints = 'on_move'
+let g:tern_show_signature_in_pum = 1
+
+au FileType javascript nmap <Leader>mgg :TernDef<CR>
+au FileType javascript nmap <Leader>mgG :TernDefSplit<CR>
+au FileType javascript nmap <Leader>mgr :TernRefs<CR>
+au FileType javascript nmap <Leader>mhd :TernDoc<CR>
+au FileType javascript nmap <Leader>mhD :TernDocBrowse<CR>
+au FileType javascript nmap <Leader>mrr :TernRename<CR>
 " }}}
 
 " session {{{
