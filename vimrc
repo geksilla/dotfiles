@@ -43,6 +43,7 @@ Plug 'moll/vim-bbye', { 'on': 'Bdelete' }
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'bogado/file-line'
+Plug 'kchmck/vim-coffee-script', { 'for': ['coffee']}
 
 call plug#end()
 " }}}
@@ -313,9 +314,11 @@ map  N <Plug>(easymotion-prev)
 
 "Syntastic: {{{
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
+let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "*"
+let g:syntastic_warning_symbol = "⚠"
 " }}}
 
 " Rainbow: {{{
