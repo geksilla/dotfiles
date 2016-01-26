@@ -3,19 +3,19 @@
   ;; To get a list of all available layers, check foo.com/layers
   :layers
   [ :core
-    :tools/git
-    :lang/clojure
+     :tools/git
+     :lang/clojure
     ;:lang/python
-    :lang/markdown
-    :lang/html
-    :lang/handlebars
-    :lang/json
-    :lang/less
-    :lang/css
-    :config-files/docker
-    :tools/linter
-    :lang/javascript
-    :fun/power_mode]
+     :lang/markdown
+     :lang/html
+     :lang/handlebars
+     :lang/json
+     :lang/less
+     :lang/css
+    ;:config-files/docker
+     :tools/linter
+     :lang/javascript
+     :fun/power_mode]
 
   ;; Packages that are not part of a layer. List them here as keyword
   ;; All packages will be ensured to be installed. Stuff that is not listed here
@@ -26,10 +26,11 @@
    :Zen
    :term3
    :typewriter
-   :slime
    :stacktrace
    :todo-show
+   :slime
    :an-old-hope-syntax
+   :jellybeans
    :tab-control
    :symbols-tree-view
    :nucleus-dark-ui]
@@ -52,7 +53,7 @@
     ;  ["activate-power-mode.particles.spawnCount.min" 2]
     ;  ["activate-power-mode.particles.totalCount.max" 150]
      ["editor.fontFamily" "Input"]
-     ["core.themes" ["nucleus-dark-ui" "an-old-hope-syntax"]]
+     ["core.themes" ["nucleus-dark-ui" "jellybeans"]]
      ["proton.lang.javascript.linter" "eslint"]
      ["zentabs.maximumOpenedTabs" 5]
      ["linter-pep8.ignoreErrorCodes" ["E111"]]
@@ -70,4 +71,5 @@
   :keymaps [{:selector "atom-text-editor.vim-mode-plus.normal-mode" :keymap [["y s" "vim-mode-plus:surround"]
                                                                              ["d s" "vim-mode-plus:delete-surround"]]}
             {:selector "atom-workspace atom-text-editor.vim-mode-plus.visual-mode" :keymap [["v" ["expand-region:expand"]]
-                                                                                            ["ctrl-v" ["expand-region:shrink"]]]}]}
+                                                                                            ["ctrl-v" ["expand-region:shrink"]]]}
+            {:selector "atom-workspace atom-text-editor.vim-mode-plus-search" :keymap [["ctrl-shift-v" "core:paste"]]}]}
