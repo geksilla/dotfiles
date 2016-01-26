@@ -73,4 +73,5 @@
                                                                              ["d s" "vim-mode-plus:delete-surround"]]}
             {:selector "atom-workspace atom-text-editor.vim-mode-plus.visual-mode" :keymap [["v" ["expand-region:expand"]]
                                                                                             ["ctrl-v" ["expand-region:shrink"]]]}
-            {:selector "atom-workspace atom-text-editor.vim-mode-plus-search" :keymap [["ctrl-shift-v" "core:paste"]]}]}
+            {:selector "atom-workspace atom-text-editor.vim-mode-plus-search" :keymap [["ctrl-shift-v" "core:paste"]]}
+            {:selector "atom-workspace atom-text-editor.vim-mode-plus.insert-mode[data-grammar~=html]" :keymap [["ctrl-j" "emmet:expand-abbreviation"]]}]}
