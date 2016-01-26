@@ -30,13 +30,12 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/copydir
   zgen oh-my-zsh plugins/themes
 
-  zgen oh-my-zsh themes/miloshadzic
+  zgen oh-my-zsh themes/agnoster
   zgen load jimmijj/zsh-syntax-highlighting
   zgen load tarruda/zsh-autosuggestions
 
   zgen save
 fi
-
 # Autosuggestions init
 zle-line-init() {
   zle autosuggest-start
@@ -70,6 +69,16 @@ __safe_path_dir() {
 __safe_source() {
   [[ -s $1 ]] && source $1 || echo -e "I'm not existing file: $1"
 }
+# PROMPT {{{
+custom_prompt() {
+  prompt_status
+  prompt_dir
+  prompt_git
+  prompt_end
+}
+
+PROMPT='%{%f%b%k%}$(custom_prompt) '
+# }}}
 # }}}
 
 __safe_path_dir /usr/local/sbin
