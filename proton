@@ -63,6 +63,7 @@
      ["Zen.width" 160]
      ["nuclide.showHome" false]
      ["git-diff.showIconsInEditorGutter" true]
+     ["proton.core.wipeUserConfigs" false]
      ["atom-fuzzy-grep.showFullPath" true]
      ["linter.lintOnFly" false]]
 
