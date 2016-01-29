@@ -44,6 +44,7 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'bogado/file-line'
 Plug 'kchmck/vim-coffee-script', { 'for': ['coffee']}
+Plug 'jpo/vim-railscasts-theme'
 
 call plug#end()
 " }}}
@@ -83,7 +84,7 @@ set noshowmode
 set showmatch
 set showcmd
 
-colorscheme jellybeans
+colorscheme railscasts
 " get my shell
 set shell=/bin/zsh
 set shellcmdflag=-lc

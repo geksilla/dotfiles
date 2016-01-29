@@ -2,20 +2,22 @@
   ;; Layers you wish to have active
   ;; To get a list of all available layers, check foo.com/layers
   :layers
-  [ :core
-     :tools/git
-     :lang/clojure
-    ;:lang/python
-     :lang/markdown
-     :lang/html
-     :lang/handlebars
-     :lang/json
-     :lang/less
-     :lang/css
-    ;:config-files/docker
-     :tools/linter
-     :lang/javascript
-     :fun/power_mode]
+  [:core
+   :tools/git
+   :lang/clojure
+   ;:lang/elixir
+   ;:lang/python
+   :lang/markdown
+   :lang/html
+   :lang/handlebars
+   :lang/json
+   :lang/less
+   :lang/css
+   :lang/go
+   ;:config-files/docker
+   :tools/linter
+   :lang/javascript
+   :fun/power_mode]
 
   ;; Packages that are not part of a layer. List them here as keyword
   ;; All packages will be ensured to be installed. Stuff that is not listed here
@@ -29,10 +31,12 @@
    :stacktrace
    :todo-show
    :slime
+   :ink
    :an-old-hope-syntax
    :jellybeans
+   :run-time-syntax
    :tab-control
-   :symbols-tree-view
+   ; :symbols-tree-view
    :nucleus-dark-ui]
 
   ;; Don't like a keybinding or want to add something yourself? Do it here
@@ -53,7 +57,7 @@
     ;  ["activate-power-mode.particles.spawnCount.min" 2]
     ;  ["activate-power-mode.particles.totalCount.max" 150]
      ["editor.fontFamily" "Input"]
-     ["core.themes" ["nucleus-dark-ui" "jellybeans"]]
+     ["core.themes" ["nucleus-dark-ui" "run-time-syntax"]]
      ["proton.lang.javascript.linter" "eslint"]
      ["zentabs.maximumOpenedTabs" 5]
      ["linter-pep8.ignoreErrorCodes" ["E111"]]
