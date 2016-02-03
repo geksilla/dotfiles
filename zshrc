@@ -6,6 +6,8 @@ export SHELL=/bin/zsh
 export EDITOR="vim"
 export TERM=xterm-256color
 export KEYTIMEOUT=1
+# print warnings, when empty don't print
+DOT_WARNS=""
 # }}}
 
 # {{{ PLugins
@@ -55,6 +57,9 @@ bgnotify_formatted() {
 [[ -f ~/.privaterc ]] && . ~/.privaterc
 
 
+__echo() {
+  [[ -n $DOT_WARNS ]] && echo -e "$@"
+}
 # Custom functions {{{
 command_exists () {
   type "$1" &> /dev/null;
@@ -62,12 +67,12 @@ command_exists () {
 
 # helper function to set path safely
 __safe_path_dir() {
-    [[ -d $1 ]] && PATH=$1:$PATH || echo -e "I'm not existing folder: $1"
+    [[ -d $1 ]] && PATH=$1:$PATH || __echo "I'm not existing folder: $1"
 }
 
 # helper function to source file safely
 __safe_source() {
-  [[ -s $1 ]] && source $1 || echo -e "I'm not existing file: $1"
+  [[ -s $1 ]] && source $1 || __echo "I'm not existing file: $1"
 }
 # PROMPT {{{
 custom_prompt() {
