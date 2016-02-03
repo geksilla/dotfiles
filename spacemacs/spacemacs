@@ -59,7 +59,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(stylus-mode jade-mode)
+   dotspacemacs-additional-packages '(stylus-mode jade-mode material-theme railscasts-theme nlinum)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -98,7 +98,8 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(spacemacs-dark
-                         gruvbox
+                         material
+                         railscastsgruvbox
                          spacemacs-light
                          solarized-dark
                          solarized-light
@@ -225,8 +226,14 @@ layers configuration. You are free to put any user code."
    magit-ediff-dwim-show-on-hunks t
    org-src-fontify-natively t)
 
-  (global-linum-mode t)
   (golden-ratio-mode t)
+  (global-nlinum-mode t)
+
+  (defun nonlinum ()
+    (nlinum-mode 0))
+
+  (add-hook 'org-mode-hook 'nonlinum)
+  (load-theme 'material)
 
   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
@@ -253,17 +260,14 @@ layers configuration. You are free to put any user code."
 
   (add-to-list 'auto-mode-alist '("\\.emblem\\'" . jade-mode))
   (add-to-list 'auto-mode-alist '("\\.styl\\'" . stylus-mode)))
-
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
+ '(custom-safe-themes
    (quote
-    (move-text magit-gh-pulls json-mode helm-themes gist github-clone git-gutter-fringe+ git-gutter-fringe git-gutter+ git-gutter rubocop rspec-mode flycheck-pos-tip evil-anzu ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe vagrant-tramp vagrant use-package toc-org tagedit stylus-mode spray spacemacs-theme spaceline smooth-scrolling smeargle slim-mode shell-pop scss-mode sass-mode ruby-tools ruby-test-mode ruby-end robe restart-emacs ranger rainbow-mode rainbow-identifiers rainbow-delimiters quelpa pyvenv pytest pyenv-mode popwin pip-requirements persp-mode pcre2el paradox page-break-lines org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme less-css-mode json-snatcher js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag gruvbox-theme google-translate golden-ratio go-eldoc gnuplot github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flycheck flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args eval-sexp-fu eshell-prompt-extras esh-help emmet-mode elisp-slime-nav diff-hl deft define-word cython-mode company-web company-tern company-statistics company-quickhelp company-go company-anaconda coffee-mode clean-aindent-mode bundler buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    ("49de25b465bc3c2498bcd4c1575fa0090bd56fc79cdb49b919b49eaea17ee1dd" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
