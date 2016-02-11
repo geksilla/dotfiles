@@ -138,6 +138,9 @@ alias tmux="tmux -2"
 alias cat="colorize"
 alias npm-exec='PATH=$(npm bin):$PATH'
 alias enw="emacs -nw"
+alias nvimrc="nvim ~/.config/nvim/init.vim"
+alias vimrc="vim ~/.vimrc"
+alias j="jump"
 # }}} 
 
 # Key Bindings {{{
