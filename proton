@@ -55,9 +55,9 @@
   :configuration
     [["git-history.showDiff" false]
      ["editor.fontSize" 13]
-    ;  ["activate-power-mode.particles.spawnCount.max" 8]
-    ;  ["activate-power-mode.particles.spawnCount.min" 2]
-    ;  ["activate-power-mode.particles.totalCount.max" 150]
+     ["activate-power-mode.particles.spawnCount.max" 4]
+     ["activate-power-mode.particles.spawnCount.min" 2]
+     ["activate-power-mode.particles.totalCount.max" 100]
      ["editor.fontFamily" "Input"]
      ["core.themes" ["nucleus-dark-ui" "an-old-hope-syntax"]]
      ["proton.lang.javascript.linter" "eslint"]
