@@ -25,10 +25,11 @@ Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'nanotech/jellybeans.vim'
 Plug 'notpratheek/vim-luna'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/simple-javascript-indenter', { 'for': ['javascript'] }
 Plug 'jiangmiao/auto-pairs'
-Plug 'jelera/vim-javascript-syntax', { 'for': ['javascript'] }
+Plug 'othree/yajs.vim', { 'for': ['javascript'] }
 Plug 'marijnh/tern_for_vim', { 'for': ['javascript'] }
 Plug 'luochen1990/rainbow'
 Plug 'shime/vim-livedown', { 'for': 'markdown' }
@@ -156,7 +157,7 @@ nnoremap <Leader>bn :bn<CR>
 nnoremap <Leader>bp :bp<CR>
 nnoremap <Leader>bk :Bdelete<CR>
 
-" Git 
+" Git
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gD :Gdiff<CR>
 nnoremap <Leader>gdn :GitGutterNextHunk<CR>
@@ -216,7 +217,7 @@ let g:airline_right_alt_sep = '⮃'
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
-
+let g:airline_theme = "bubblegum"
 " }}}
 
 "unite: {{{
@@ -358,7 +359,7 @@ au FileType go nmap <leader>mgd <Plug>(go-doc)
 au FileType go nmap <leader>mpr <Plug>(go-run)
 au FileType go nmap <leader>mpb <Plug>(go-build)
 " }}}
-"
+
 " javascript {{{
 
 let g:tern_show_argument_hints = 'on_move'
