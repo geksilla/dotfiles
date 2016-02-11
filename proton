@@ -13,7 +13,7 @@
    :lang/json
    :lang/less
    :lang/css
-   :lang/go
+   ;:lang/go
    ;:config-files/docker
    :tools/linter
    :lang/javascript
@@ -32,11 +32,12 @@
    :todo-show
    :slime
    :ink
+   :ask-stack
    :an-old-hope-syntax
    :jellybeans
    :run-time-syntax
    :tab-control
-   ; :symbols-tree-view
+   :symbol-gen
    :nucleus-dark-ui]
 
   ;; Don't like a keybinding or want to add something yourself? Do it here
@@ -57,7 +58,7 @@
     ;  ["activate-power-mode.particles.spawnCount.min" 2]
     ;  ["activate-power-mode.particles.totalCount.max" 150]
      ["editor.fontFamily" "Input"]
-     ["core.themes" ["nucleus-dark-ui" "run-time-syntax"]]
+     ["core.themes" ["nucleus-dark-ui" "an-old-hope-syntax"]]
      ["proton.lang.javascript.linter" "eslint"]
      ["zentabs.maximumOpenedTabs" 5]
      ["linter-pep8.ignoreErrorCodes" ["E111"]]
@@ -74,8 +75,10 @@
   ;; Want some custom behavior inside a certain window?
   ;; For example you prefer navigating with esc and enter? Add it here.
   :keymaps [{:selector "atom-text-editor.vim-mode-plus.normal-mode" :keymap [["y s" "vim-mode-plus:surround"]
-                                                                             ["d s" "vim-mode-plus:delete-surround"]]}
+                                                                             ["d s" "vim-mode-plus:delete-surround"]
+                                                                             ["c s" "vim-mode-plus:change-surround"]]}
             {:selector "atom-workspace atom-text-editor.vim-mode-plus.visual-mode" :keymap [["v" ["expand-region:expand"]]
                                                                                             ["ctrl-v" ["expand-region:shrink"]]]}
             {:selector "atom-workspace atom-text-editor.vim-mode-plus-search" :keymap [["ctrl-shift-v" "core:paste"]]}
-            {:selector "atom-workspace atom-text-editor.vim-mode-plus.insert-mode[data-grammar~=html]" :keymap [["ctrl-j" "emmet:expand-abbreviation"]]}]}
+            {:selector "atom-workspace atom-text-editor.vim-mode-plus.insert-mode[data-grammar~=html]:not(.autocomplete-active)" :keymap [["ctrl-j" "emmet:expand-abbreviation"]]}
+            {:selector "atom-workspace atom-text-editor:not([mini])" :keymap [["ctrl-]" "symbols-view:go-to-declaration"]]}]}
