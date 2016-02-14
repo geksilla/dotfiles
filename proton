@@ -34,6 +34,7 @@
    :ink
    :ask-stack
    :an-old-hope-syntax
+   :atom-dark-fusion-syntax
    :jellybeans
    :run-time-syntax
    :tab-control
@@ -78,6 +79,7 @@
                                                                              ["d s" "vim-mode-plus:delete-surround"]
                                                                              ["c s" "vim-mode-plus:change-surround"]]}
             {:selector "atom-workspace atom-text-editor.vim-mode-plus.visual-mode" :keymap [["v" ["expand-region:expand"]]
+                                                                                            ["s" ["vim-mode-plus:surround"]]
                                                                                             ["ctrl-v" ["expand-region:shrink"]]]}
             {:selector "atom-workspace atom-text-editor.vim-mode-plus-search" :keymap [["ctrl-shift-v" "core:paste"]]}
             {:selector "atom-workspace atom-text-editor.vim-mode-plus.insert-mode[data-grammar~=html]:not(.autocomplete-active)" :keymap [["ctrl-j" "emmet:expand-abbreviation"]]}
