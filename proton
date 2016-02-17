@@ -31,10 +31,10 @@
    :stacktrace
    :todo-show
    :slime
-   :ink
    :ask-stack
+   ; :tmux-send
    :an-old-hope-syntax
-   :atom-dark-fusion-syntax
+   :atom-hot-package-loader
    :jellybeans
    :run-time-syntax
    :tab-control
@@ -71,16 +71,17 @@
      ["git-diff.showIconsInEditorGutter" true]
      ["proton.core.wipeUserConfigs" false]
      ["atom-fuzzy-grep.showFullPath" true]
+     ["atom-hot-package-loader.onlyInDevMode" false]
+     ["atom-hot-package-loader.autoWatchTarget" true]
      ["linter.lintOnFly" false]]
 
   ;; Want some custom behavior inside a certain window?
   ;; For example you prefer navigating with esc and enter? Add it here.
-  :keymaps [{:selector "atom-text-editor.vim-mode-plus.normal-mode" :keymap [["y s" "vim-mode-plus:surround"]
-                                                                             ["d s" "vim-mode-plus:delete-surround"]
-                                                                             ["c s" "vim-mode-plus:change-surround"]]}
+  :keymaps [
             {:selector "atom-workspace atom-text-editor.vim-mode-plus.visual-mode" :keymap [["v" ["expand-region:expand"]]
                                                                                             ["s" ["vim-mode-plus:surround"]]
                                                                                             ["ctrl-v" ["expand-region:shrink"]]]}
-            {:selector "atom-workspace atom-text-editor.vim-mode-plus-search" :keymap [["ctrl-shift-v" "core:paste"]]}
+            {:selector "atom-workspace atom-text-editor.vim-mode-plus-search" :keymap [["ctrl-v" "core:paste"]]}
             {:selector "atom-workspace atom-text-editor.vim-mode-plus.insert-mode[data-grammar~=html]:not(.autocomplete-active)" :keymap [["ctrl-j" "emmet:expand-abbreviation"]]}
-            {:selector "atom-workspace atom-text-editor:not([mini])" :keymap [["ctrl-]" "symbols-view:go-to-declaration"]]}]}
+            {:selector "atom-workspace atom-text-editor:not([mini])" :keymap [["ctrl-]" "symbols-view:go-to-declaration"]]}
+            {:selector "atom-workspace atom-pane .term3 .terminal" :keymap [["space" "native!"]]}]}
