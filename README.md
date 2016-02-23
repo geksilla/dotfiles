@@ -127,6 +127,24 @@ $ vim -c "PlugInstall | q"
 
 And vim is ready!
 
+### [Proton](https://github.com/dvcrn/proton)
+
+Install [atom](https://atom.io)
+
+Install [proton-mode](https://atom.io/packages/proton-mode) package via __Settings View__ -> __Install__ or `apm`:
+
+```
+apm install proton-mode
+```
+
+Install `.proton`:
+
+```
+ln -s ~/dotfiles/proton ~/.proton
+```
+
+Start __atom__. Wait for install complete. Enjoy!
+
 ## Tools
 
 * [Homebrew Linux](https://github.com/Homebrew/linuxbrew)
