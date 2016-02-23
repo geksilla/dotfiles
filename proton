@@ -32,6 +32,7 @@
    :stacktrace
    :todo-show
    :slime
+   :monday-syntax
    :ask-stack
    :line-diff-details
    ; :tmux-send
@@ -44,8 +45,21 @@
    :duotone-blue-dark-syntax
    :rain-syntax
    :tab-control
-   :symbol-gen
-   :nucleus-dark-ui]
+   :symbol-gen]
+
+  :disabled-packages
+  [
+    :about
+    :release-notes
+    :welcome
+    :highlight-selected
+    :highlight-line
+    :relative-numbers
+    :metrics
+    :exception-reporter
+    :open-on-github
+    :package-generator]
+
 
   ;; Don't like a keybinding or want to add something yourself? Do it here
   ;; (not implemented yet)
