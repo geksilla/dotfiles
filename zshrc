@@ -133,7 +133,7 @@ __safe_path_dir $HOME/scripts
 # {{{ Aliases
 alias r=". ~/.zshrc"
 alias vi="vim"
-alias pskill="ps aux | fzf | awk '{print \$2}' | xargs kill -9"
+alias pskill="ps aux | fzf -m | awk '{print \$2}' | xargs kill -9"
 alias tmux="tmux -2"
 alias cat="colorize"
 alias npm-exec='PATH=$(npm bin):$PATH'
