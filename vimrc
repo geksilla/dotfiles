@@ -46,11 +46,15 @@ Plug 'xolox/vim-session'
 Plug 'bogado/file-line'
 Plug 'kchmck/vim-coffee-script', { 'for': ['coffee']}
 Plug 'jpo/vim-railscasts-theme'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 " }}}
 
 "Defaults: {{{
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
 set autoread
 set autowrite
 set nu " line numbers
@@ -203,8 +207,8 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = '⮀'
-let g:airline#extensions#tabline#left_alt_sep = '⮁'
+"let g:airline#extensions#tabline#left_sep = '⮀'
+"let g:airline#extensions#tabline#left_alt_sep = '⮁'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -218,6 +222,9 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 let g:airline_theme = "bubblegum"
+
+let g:airline_left_sep = "\uE0C0"
+let g:airline_right_sep = "\uE0C7"
 " }}}
 
 "unite: {{{
@@ -376,4 +383,7 @@ au FileType javascript nmap <Leader>mrr :TernRename<CR>
 " session {{{
 let g:session_autoload = 'no'
 let g:session_autosave = 'yes'
+" }}}
+" {{{ vim-startify
+let g:startify_custom_header = []
 " }}}

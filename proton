@@ -6,13 +6,14 @@
    :tools/git
    :lang/clojure
    ;:lang/elixir
-   ;:lang/python
+   ; :lang/python
+   :config-files/docker
    :lang/markdown
-   :lang/html
-   :lang/handlebars
    :lang/json
    :lang/less
    :lang/css
+   :lang/ruby
+   :lang/html
    ;:lang/go
    ;:config-files/docker
    :tools/linter
@@ -23,20 +24,25 @@
   ;; All packages will be ensured to be installed. Stuff that is not listed here
   ;; Will get uninstalled so choose wisely!
   :additional-packages
-  [:git-diff-details
+  [;:git-diff-details
    :atom-fuzzy-grep
    :Zen
-   :term3
+   ; :term3
    :typewriter
    :stacktrace
    :todo-show
    :slime
    :ask-stack
+   :line-diff-details
    ; :tmux-send
    :an-old-hope-syntax
    :atom-hot-package-loader
    :jellybeans
    :run-time-syntax
+   :railscasts-prime-syntax
+   :duotone-dark-syntax
+   :duotone-blue-dark-syntax
+   :rain-syntax
    :tab-control
    :symbol-gen
    :nucleus-dark-ui]
@@ -44,13 +50,28 @@
   ;; Don't like a keybinding or want to add something yourself? Do it here
   ;; (not implemented yet)
   :keybindings
-  {:ctrl-f {:action "fuzzy-grep:toggle"}
+  {:slash {:action "fuzzy-grep:toggle"}
    :t {:z {:action "zen:toggle" :target "atom-text-editor:not([mini])" :title "zen view"}}
    :g {:d {:t {:action "git-diff-details:toggle-git-diff-details" :target "atom-text-editor.is-focused:not(.mini)"}
            :r {:action "git-diff-details:undo" :target "atom-text-editor.is-focused:not(.mini)"}}}
+
    :s {:l {:action "symbols-view:toggle-file-symbols" :target "atom-text-editor:not([mini])" :title "file symbols"}
        :t {:action "symbols-tree-view:toggle" :title "symbols tree"}
        :T {:action "todo-show:find-in-project"}}}
+  :disabled-packages
+  [
+    :release-notes
+    :about
+    :welcome
+    :autoflow
+    :metrics
+    :open-on-github
+    :package-generator
+    :go-to-line
+    :exception-reporting
+    :archive-view
+    :autoupdate-packages
+  ]
 
   :configuration
     [["git-history.showDiff" false]
@@ -59,12 +80,13 @@
      ["activate-power-mode.particles.spawnCount.min" 2]
      ["activate-power-mode.particles.totalCount.max" 100]
      ["editor.fontFamily" "Input"]
-     ["core.themes" ["nucleus-dark-ui" "an-old-hope-syntax"]]
+     ["core.themes" ["nucleus-dark-ui" "railscasts-prime-syntax"]]
      ["proton.lang.javascript.linter" "eslint"]
      ["zentabs.maximumOpenedTabs" 5]
      ["linter-pep8.ignoreErrorCodes" ["E111"]]
      ["editor.preferredLineLength" 100]
      ["editor.tabLength" 2]
+     ["editor.tabLength" 2 {:scopeSelector [".source.python"]}]
      ["editor.softWrap" false]
      ["Zen.width" 160]
      ["nuclide.showHome" false]
@@ -79,7 +101,6 @@
   ;; For example you prefer navigating with esc and enter? Add it here.
   :keymaps [
             {:selector "atom-workspace atom-text-editor.vim-mode-plus.visual-mode" :keymap [["v" ["expand-region:expand"]]
-                                                                                            ["s" ["vim-mode-plus:surround"]]
                                                                                             ["ctrl-v" ["expand-region:shrink"]]]}
             {:selector "atom-workspace atom-text-editor.vim-mode-plus-search" :keymap [["ctrl-v" "core:paste"]]}
             {:selector "atom-workspace atom-text-editor.vim-mode-plus.insert-mode[data-grammar~=html]:not(.autocomplete-active)" :keymap [["ctrl-j" "emmet:expand-abbreviation"]]}

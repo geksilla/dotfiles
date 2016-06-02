@@ -29,6 +29,9 @@ values."
       js-indent-level 2
       js2-basic-offset 2)
      ruby
+     (elm :variables
+          elm-reactor-port "3011"
+          elm-reactor-address "0.0.0.0")
      python
      clojure
      elixir
@@ -54,12 +57,12 @@ values."
      (colors
       :variables
       colors-enable-nyan-cat-progress-bar t)
-     (deft :variables deft-directory "~/Dropbox/deft"))
+     (deft :variables deft-directory "~/"))
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(stylus-mode jade-mode material-theme railscasts-theme nlinum)
+   dotspacemacs-additional-packages '(stylus-mode jade-mode material-theme nlinum mode-icons darkokai-theme dumb-jump)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -99,7 +102,6 @@ values."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(spacemacs-dark
                          material
-                         railscastsgruvbox
                          spacemacs-light
                          solarized-dark
                          solarized-light
@@ -108,7 +110,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Input"
                                :size 13
                                :weight normal
                                :width normal
@@ -224,20 +226,31 @@ layers configuration. You are free to put any user code."
    ;; let use eslint
    flycheck-disabled-checkers '(javascript-jshint)
    magit-ediff-dwim-show-on-hunks t
-   org-src-fontify-natively t)
+   org-src-fontify-natively t
+   dumb-jump-max-find-time 5)
 
   (golden-ratio-mode t)
   (global-nlinum-mode t)
+  (mode-icons-mode t)
+  (dumb-jump-mode t)
 
   (defun nonlinum ()
     (nlinum-mode 0))
 
+
   (add-hook 'org-mode-hook 'nonlinum)
-  (load-theme 'material)
+  ;; (load-theme 'material)
 
   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+  (spacemacs/set-leader-keys
+    "s L" 'spacemacs/last-search-buffer
+    "s l" 'helm-imenu
+    "o g g" 'dumb-jump-go
+    "o g C-c" 'dumb-jump-back
+    "o g l" 'dumb-jump-quick-look)
 
   (defun geksilla/relative-file-name ()
     "Helper to get relative path according to project root"

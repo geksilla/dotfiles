@@ -4,7 +4,7 @@
 # {{{ ENV
 export SHELL=/bin/zsh
 export EDITOR="vim"
-export TERM=xterm-256color
+#export TERM="screen-256color"
 export KEYTIMEOUT=1
 # print warnings, when empty don't print
 DOT_WARNS=""
@@ -21,12 +21,12 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/common-aliases
   zgen oh-my-zsh plugins/vagrant
   zgen oh-my-zsh plugins/docker
+  zgen oh-my-zsh plugins/go
   zgen oh-my-zsh plugins/jump
   zgen oh-my-zsh plugins/colored-man-pages
   zgen oh-my-zsh plugins/colorize
   zgen oh-my-zsh plugins/nvm
   zgen oh-my-zsh plugins/rvm
-  zgen oh-my-zsh plugins/go
   zgen oh-my-zsh plugins/vi-mode
   zgen oh-my-zsh plugins/copyfile
   zgen oh-my-zsh plugins/copydir
@@ -34,16 +34,17 @@ if ! zgen saved; then
 
   zgen oh-my-zsh themes/agnoster
   zgen load jimmijj/zsh-syntax-highlighting
-  zgen load tarruda/zsh-autosuggestions
+  zgen load zsh-users/zsh-autosuggestions
+  zgen load svenkeidel/nixos-zsh-completion
 
   zgen save
 fi
 # Autosuggestions init
-zle-line-init() {
-  zle autosuggest-start
-}
+# zle-line-init() {
+#   zle autosuggest-start
+# }
 
-zle -N zle-line-init
+# zle -N zle-line-init
 
 # Notification format message
 bgnotify_formatted() {
@@ -90,7 +91,6 @@ __safe_path_dir /usr/local/sbin
 # {{{ Libs and scripts
 #   {{{ Go
   export GOPATH=$HOME/Go
-  export GOBIN=$HOME/Go/bin
   export PATH=$PATH:$GOPATH/bin
 #   }}}
 #   {{{ Python
@@ -120,6 +120,9 @@ __safe_source $HOME/.nvm/nvm.sh # this loads nvm
 #   }}}
 #   {{{ rsvm
 [[ -s "$HOME/.rsvm/rsvm.sh" ]] && source "$HOME/.rsvm/rsvm.sh" # Load rsvm
+#   }}}
+#   {{{ Nix
+__safe_source ~/.nix-profile/etc/profile.d/nix.sh
 #   }}}
 #   {{{ Tmuxinator completions
 __safe_source $HOME/completions/tmuxinator.zsh
