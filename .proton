@@ -5,19 +5,23 @@
   [:core
    :tools/git
    :lang/clojure
-   ;:lang/elixir
-   ; :lang/python
+   :lang/elixir
+   :lang/python
    :config-files/docker
    :lang/markdown
    :lang/json
    :lang/less
    :lang/css
-   :lang/ruby
+   ;:lang/ruby
    :lang/html
+   :lang/elixir
+   :lang/handlebars
+   :lang/elm
    ;:lang/go
    ;:config-files/docker
    :tools/linter
    :lang/javascript
+   :apps/notes
    :fun/power_mode]
 
   ;; Packages that are not part of a layer. List them here as keyword
@@ -26,75 +30,81 @@
   :additional-packages
   [;:git-diff-details
    :atom-fuzzy-grep
-   :Zen
+   :atom-auto-programming
    ; :term3
    :typewriter
-   :stacktrace
-   :todo-show
    :slime
    :monday-syntax
    :ask-stack
+   :clipboard-plus
    :line-diff-details
    ; :tmux-send
+   :atom-cljs-doc
    :an-old-hope-syntax
    :atom-hot-package-loader
    :jellybeans
-   :run-time-syntax
    :railscasts-prime-syntax
-   :duotone-dark-syntax
-   :duotone-blue-dark-syntax
-   :rain-syntax
    :tab-control
-   :symbol-gen]
+   :symbol-gen
+   :language-log
+   :goto-definition
+   :split-diff
+   :atom-bootstrap3
+   :regex-railroad-diagram
+   :git-blame
+   :node-debugger
+   :flexible-ui
+   :svg-preview
+   :seti-syntax
+   :open-this]
 
   :disabled-packages
   [
-    :about
-    :release-notes
-    :welcome
-    :highlight-selected
-    :highlight-line
-    :relative-numbers
-    :metrics
-    :exception-reporter
-    :open-on-github
-    :package-generator]
+   :release-notes
+   :about
+   :welcome
+   :autoflow
+   :metrics
+   :open-on-github
+   :package-generator
+   :go-to-line
+   :exception-reporting
+   :archive-view
+   :autoupdate-packages
+   :blame
+   :react]
 
 
   ;; Don't like a keybinding or want to add something yourself? Do it here
-  ;; (not implemented yet)
   :keybindings
   {:slash {:action "fuzzy-grep:toggle"}
    :t {:z {:action "zen:toggle" :target "atom-text-editor:not([mini])" :title "zen view"}}
+
+   :o {:g {:g {:action "goto-definition:go" :target "atom-text-editor:not(mini)" :title "go to def"}}}
+
    :g {:d {:t {:action "git-diff-details:toggle-git-diff-details" :target "atom-text-editor.is-focused:not(.mini)"}
-           :r {:action "git-diff-details:undo" :target "atom-text-editor.is-focused:not(.mini)"}}}
+           :r {:action "git-reset-selection:reset" :target "atom-text-editor.is-focused:not(.mini)"}
+           :s {:action "split-diff:toggle" :title "split diff"}}
+       :B {:action "git-blame:toggle" :title "blame"}}
 
    :s {:l {:action "symbols-view:toggle-file-symbols" :target "atom-text-editor:not([mini])" :title "file symbols"}
        :t {:action "symbols-tree-view:toggle" :title "symbols tree"}
-       :T {:action "todo-show:find-in-project"}}}
-  :disabled-packages
-  [
-    :release-notes
-    :about
-    :welcome
-    :autoflow
-    :metrics
-    :open-on-github
-    :package-generator
-    :go-to-line
-    :exception-reporting
-    :archive-view
-    :autoupdate-packages
-  ]
+       :T {:action "todo-show:find-in-project"}}
+   :p {:slash {:action "narrow:search" :title "search in project"}}}
+
 
   :configuration
     [["git-history.showDiff" false]
+     ["core.ignoredNames" [".git", ".hg", ".svn", ".DS_Store", "._*", "Thumbs.db", "dist", "public", "node_modules", "bower_components", "tmp", "_build", "deps"]]
      ["editor.fontSize" 13]
+     ["nvatom.directory", "~/nv-notes"]
+     ["proton.core.inputProvider" :vim-mode-plus]
+     ["proton.core.whichKeyDelay" 0.4]
      ["activate-power-mode.particles.spawnCount.max" 4]
      ["activate-power-mode.particles.spawnCount.min" 2]
      ["activate-power-mode.particles.totalCount.max" 100]
-     ["editor.fontFamily" "Input"]
-     ["core.themes" ["nucleus-dark-ui" "railscasts-prime-syntax"]]
+     ["editor.fontFamily" "Fira Code"]
+     ["core.themes" ["flexible-ui" "seti-syntax"]]
      ["proton.lang.javascript.linter" "eslint"]
      ["zentabs.maximumOpenedTabs" 5]
      ["linter-pep8.ignoreErrorCodes" ["E111"]]
@@ -107,9 +117,12 @@
      ["git-diff.showIconsInEditorGutter" true]
      ["proton.core.wipeUserConfigs" false]
      ["atom-fuzzy-grep.showFullPath" true]
+     ["atom-fuzzy-grep.maxCandidates" 40]
      ["atom-hot-package-loader.onlyInDevMode" false]
      ["atom-hot-package-loader.autoWatchTarget" true]
-     ["linter.lintOnFly" false]]
+     ["linter.lintOnFly" false]
+     ["ember-cli-helper.pathToNodeExecutable" "node"]
+     ["ember-cli-helper.pathToEmberExecutable" "ember"]]
 
   ;; Want some custom behavior inside a certain window?
   ;; For example you prefer navigating with esc and enter? Add it here.
@@ -117,6 +130,9 @@
             {:selector "atom-workspace atom-text-editor.vim-mode-plus.visual-mode" :keymap [["v" ["expand-region:expand"]]
                                                                                             ["ctrl-v" ["expand-region:shrink"]]]}
             {:selector "atom-workspace atom-text-editor.vim-mode-plus-search" :keymap [["ctrl-v" "core:paste"]]}
+            {:selector "atom-workspace atom-text-editor.mini" :keymap [["ctrl-n" "core:move-down"]]}
+            {:selector "atom-workspace atom-text-editor.mini" :keymap [["ctrl-p" "core:move-up"]]}
             {:selector "atom-workspace atom-text-editor.vim-mode-plus.insert-mode[data-grammar~=html]:not(.autocomplete-active)" :keymap [["ctrl-j" "emmet:expand-abbreviation"]]}
             {:selector "atom-workspace atom-text-editor:not([mini])" :keymap [["ctrl-]" "symbols-view:go-to-declaration"]]}
-            {:selector "atom-workspace atom-pane .term3 .terminal" :keymap [["space" "native!"]]}]}
+            {:selector "atom-workspace atom-pane .term3 .terminal" :keymap [["space" "native!"]]}
+            {:selector "atom-text-editor.vim-mode-plus.normal-mode" :keymap [["g f" "open-this:here"]]}]}

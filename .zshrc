@@ -31,8 +31,10 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/copyfile
   zgen oh-my-zsh plugins/copydir
   zgen oh-my-zsh plugins/themes
+  zgen oh-my-zsh plugins/fasd
 
-  zgen oh-my-zsh themes/agnoster
+  # zgen oh-my-zsh themes/agnoster
+  zgen load denysdovhan/spaceship-zsh-theme spaceship
   zgen load jimmijj/zsh-syntax-highlighting
   zgen load zsh-users/zsh-autosuggestions
   zgen load svenkeidel/nixos-zsh-completion
@@ -75,6 +77,12 @@ __safe_path_dir() {
 __safe_source() {
   [[ -s $1 ]] && source $1 || __echo "I'm not existing file: $1"
 }
+
+node-watch() {
+local current_node=$(nvm current)
+$NVM_DIR/versions/node/$current_node/bin/watch $@
+
+}
 # PROMPT {{{
 custom_prompt() {
   prompt_status
@@ -83,7 +91,7 @@ custom_prompt() {
   prompt_end
 }
 
-PROMPT='%{%f%b%k%}$(custom_prompt) '
+# PROMPT='%{%f%b%k%}$(custom_prompt) '
 # }}}
 # }}}
 
@@ -137,6 +145,8 @@ __safe_path_dir $HOME/scripts
 alias r=". ~/.zshrc"
 alias vi="vim"
 alias pskill="ps aux | fzf -m | awk '{print \$2}' | xargs kill -9"
+alias docker-rmi="docker images | fzf -m | awk '{print \$3}' | xargs docker rmi "
+alias docker-rmif="docker images | fzf -m | awk '{print \$3}' | xargs docker rmi -f "
 alias tmux="tmux -2"
 alias cat="colorize"
 alias npm-exec='PATH=$(npm bin):$PATH'
@@ -144,6 +154,7 @@ alias enw="emacs -nw"
 alias nvimrc="nvim ~/.config/nvim/init.vim"
 alias vimrc="vim ~/.vimrc"
 alias j="jump"
+alias gusr="g stash save -u; g pull --rebase && g stash pop"
 # }}} 
 
 # Key Bindings {{{
@@ -152,3 +163,5 @@ bindkey '^e' end-of-line
 bindkey '^I' expand-or-complete
 bindkey '^s' fzf-completion
 # }}}
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

@@ -47,6 +47,7 @@ Plug 'bogado/file-line'
 Plug 'kchmck/vim-coffee-script', { 'for': ['coffee']}
 Plug 'jpo/vim-railscasts-theme'
 Plug 'ryanoasis/vim-devicons'
+Plug 'hecal3/vim-leader-guide'
 
 call plug#end()
 " }}}
@@ -102,7 +103,7 @@ endif
 
 if has('gui_running')
   " set fullscreen on start
-  set guifont=Input
+  set guifont=Monaco
   set lines=999 columns=999
   set guioptions-=M
   set guioptions-=T
@@ -141,27 +142,37 @@ au BufNewFile,BufRead *.js setf javascript
 au BufNewFile,BufRead *.jsm setf javascript
 " }}}
 
+" leader-guide BEGIN: {{{
+let g:lmap = {}
+let g:lmap.f = { 
+      \'name' : 'Open File',
+      \'s' : ['w', 'Save File'],
+      \'d' : ['e $MYVIMRC', 'Open .vimrc'],
+      \'r' : ['so $MYVIMRC', 'Reload .vimrc']
+      \}
+let g:lmap.t = { 'name' : 'Toggle' }
+let g:lmap.t.h = ['noh', 'highlight']
+" }}}
+
 "Key Maps: {{{
 let mapleader="\<Space>"
 let g:mapleader="\<Space>"
 let maplocalleader="\<Space>"
 let g:maplocalleader="\<Space>"
 
-nnoremap <Leader>s :w<CR>
 vmap <Leader>y "+y
 vmap <Leader>d "+d
-nmap <Leader>p "+p
 nmap <Leader>P "+P
-vmap <Leader>p "+p
 vmap <Leader>P "+P
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
-nnoremap <Leader>h :noh<CR>
+let g:lmap.b = { 'name' : 'Buffer' }
 nnoremap <Leader>bn :bn<CR>
 nnoremap <Leader>bp :bp<CR>
 nnoremap <Leader>bk :Bdelete<CR>
 
 " Git
+let g:lmap.g = { 'name' : 'Git' }
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gD :Gdiff<CR>
 nnoremap <Leader>gdn :GitGutterNextHunk<CR>
@@ -169,10 +180,16 @@ nnoremap <Leader>gdN :GitGutterPrevHunk<CR>
 nnoremap <Leader>gdr :GitGutterRevertHunk<CR>
 nnoremap <Leader>ghd :GitGutterPreviewHunk<CR>
 
+let g:lmap.p = { 'name' : 'Project' }
 nnoremap <Leader>pt :NERDTreeToggle<CR>
 nnoremap <Leader>pf :FZF<CR>
 nnoremap <Leader>pst :TagbarToggle<CR>
 nnoremap <Leader>=j :%!python -m json.tool<CR>
+
+let g:lmap.q = { 'name' : 'Quit',
+      \'q' : ['q', 'quit'],
+      \'Q' : ['q!', '!quit']
+      \}
 " }}}
 
 "neocomplete/neosnippet: {{{
@@ -319,6 +336,11 @@ map / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
+let g:lmap.j = {
+      \'name' : 'jump',
+      \'w' : ['call feedkeys("\<Plug>(easymotion-bd-w)")', 'Word'],
+      \'j' : ['call feedkeys("\<Plug>(easymotion-bd-f)")', 'Char']
+      \}
 " }}}
 
 "Syntastic: {{{
@@ -384,6 +406,12 @@ au FileType javascript nmap <Leader>mrr :TernRename<CR>
 let g:session_autoload = 'no'
 let g:session_autosave = 'yes'
 " }}}
+
 " {{{ vim-startify
 let g:startify_custom_header = []
+" }}}
+
+" leader-guide END: {{{
+call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
+nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
 " }}}
