@@ -6,8 +6,15 @@ export SHELL=/bin/zsh
 export EDITOR="vim"
 #export TERM="screen-256color"
 export KEYTIMEOUT=1
-# print warnings, when empty don't print
+# this resets <<< status for vi mode for shell session
+export RPS1="%{$reset_color%}"
+# }}}
+# {{{ Configs
+# Enables warning messages during initialize
 DOT_WARNS=""
+# {{{ spaceship configs
+SPACESHIP_RUBY_SHOW=false
+# }}}
 # }}}
 
 # {{{ PLugins

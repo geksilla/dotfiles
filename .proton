@@ -17,6 +17,7 @@
    :lang/elixir
    :lang/handlebars
    :lang/elm
+   :lang/typescript
    ;:lang/go
    ;:config-files/docker
    :tools/linter
@@ -55,7 +56,7 @@
    :node-debugger
    :flexible-ui
    :svg-preview
-   :seti-syntax
+   :one-dark-vivid-syntax
    :open-this]
 
   :disabled-packages
@@ -104,7 +105,7 @@
      ["activate-power-mode.particles.spawnCount.min" 2]
      ["activate-power-mode.particles.totalCount.max" 100]
      ["editor.fontFamily" "Fira Code"]
-     ["core.themes" ["flexible-ui" "seti-syntax"]]
+     ["core.themes" ["flexible-ui" "one-dark-vivid-syntax"]]
      ["proton.lang.javascript.linter" "eslint"]
      ["zentabs.maximumOpenedTabs" 5]
      ["linter-pep8.ignoreErrorCodes" ["E111"]]
